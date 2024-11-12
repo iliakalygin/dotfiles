@@ -1,18 +1,20 @@
 {
   "layer": "top",
-  "position": "top",
+  "position": "bottom",
   "margin-bottom": 0,
   "modules-left": [
     "hyprland/workspaces"
   ],
-  "modules-center": [
-    "clock"
-    //"hyprland/window"
-  ],
+//  "modules-center": [
+//    //"clock"
+//    "hyprland/window"
+//  ],
   "modules-right": [
     "pulseaudio",
     "custom/separator",
-    "tray"
+    "tray",
+    "custom/separator",
+    "clock"
   ],
   "custom/separator": {
     "exec": "echo \"|\"",
@@ -24,7 +26,7 @@
   },
   "clock": {
     // 24 hour
-    "format": " {:%d %B %Y %H:%M:%S} ",
+    "format": " {:%H:%M:%S} ",
     // 12 hour
     // "format": " 󰸗 {:%I:%M %p} ",
     "interval": 1,
