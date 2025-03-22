@@ -67,17 +67,3 @@ eval "$(fzf --zsh)"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-
-# custom bindings
-bindkey '^[^I' autosuggest-accept #shift tab to accept autosuggest
-
-# set zsh as default instead of bash
-export SHELL=$(command -v zsh)
-
-# fix window closure confirm spam when no jobs are running
-autoload -Uz add-zsh-hook
-preexec_disown() {
-  [[ -z "$(jobs)" ]] || disown -a
-}
-add-zsh-hook preexec preexec_disown
