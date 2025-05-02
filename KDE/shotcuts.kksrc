@@ -1,5 +1,6 @@
 [ActivityManager][Global Shortcuts]
 switch-to-activity-6576f398-af00-4bb5-9841-9ba7fbb1be5e=
+switch-to-activity-e2ff8b30-d1fb-4839-aece-bf91fa43998c=
 
 [Custom Commands][net.local.1password.desktop]
 Exec=1password --quick-access
@@ -10,14 +11,17 @@ Exec=/home/iliak/Programs/rclone/rclone-browser-1.8.0-a0b66c6-linux-x86_64.AppIm
 Name=rclone
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
+Switch keyboard layout to English (US, intl., with dead keys)=
+Switch keyboard layout to Russian=
+Switch keyboard layout to custom_ru=
 Switch to Last-Used Keyboard Layout=Meta+Alt+L
-Switch to Next Keyboard Layout=Meta+Alt+K
+Switch to Next Keyboard Layout=Meta+Space
 
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+]; Ctrl+PgDown
-Activate Previous Tab=Ctrl+[; Ctrl+PgUp
+Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
 Back=Alt+Left; Back
@@ -28,7 +32,7 @@ Clear=
 Close=Ctrl+W; Ctrl+Esc
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+Ins; Ctrl+C
+Copy=Ctrl+C; Ctrl+Ins
 CreateFolder=Ctrl+Shift+N
 Cut=Shift+Del; Ctrl+X
 DeleteFile=Shift+Del
@@ -65,7 +69,7 @@ Open=Ctrl+O
 OpenContextMenu=Menu; Shift+F10
 OpenMainMenu=F10
 OpenRecent=
-Paste=Shift+Ins; Ctrl+V
+Paste=Ctrl+V; Shift+Ins
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -84,7 +88,7 @@ RotateUp=Up
 Save=Ctrl+S
 SaveAs=Ctrl+Shift+S
 SelectAll=Ctrl+A
-ShowHideHiddenFiles=Alt+.; Ctrl+H
+ShowHideHiddenFiles=Ctrl+H; Alt+.
 ShowMenubar=Ctrl+M
 ShowStatusbar=
 ShowToolbar=
@@ -96,7 +100,7 @@ Undo=Ctrl+Z
 Up=Alt+Up
 WhatsThis=Shift+F1
 Zoom=
-ZoomIn=Ctrl++; Ctrl+=
+ZoomIn=Ctrl+=; Ctrl++
 ZoomOut=Ctrl+-
 
 [kaccess][Global Shortcuts]
@@ -105,7 +109,7 @@ Toggle Screen Reader On and Off=Meta+Alt+S
 [kcm_touchpad][Global Shortcuts]
 Disable Touchpad=Touchpad Off
 Enable Touchpad=Touchpad On
-Toggle Touchpad=Meta+Ctrl+Zenkaku Hankaku; Touchpad Toggle
+Toggle Touchpad=Touchpad Toggle; Meta+Ctrl+Zenkaku Hankaku
 
 [kitty.desktop][Global Shortcuts]
 _launch=Meta+Return; Ctrl+Alt+T
@@ -117,7 +121,7 @@ decrease_volume_small=Shift+Volume Down
 increase_microphone_volume=Microphone Volume Up
 increase_volume=Volume Up
 increase_volume_small=Shift+Volume Up
-mic_mute=Microphone Mute; Meta+Volume Mute
+mic_mute=Meta+Volume Mute; Microphone Mute
 mute=Volume Mute
 
 [ksmserver][Global Shortcuts]
@@ -137,7 +141,7 @@ Cycle Overview Opposite=
 Decrease Opacity=
 Edit Tiles=Meta+T
 Expose=Ctrl+F9
-ExposeAll=Ctrl+F10; Launch (C)
+ExposeAll=Launch (C); Ctrl+F10
 ExposeClass=Ctrl+F7
 ExposeClassCurrentDesktop=
 Grid View=Meta+G
@@ -150,7 +154,7 @@ MoveZoomDown=
 MoveZoomLeft=
 MoveZoomRight=
 MoveZoomUp=
-Overview=Meta+W; Meta+Tab
+Overview=Meta+Tab; Meta+W
 Setup Window Shortcut=
 Show Desktop=Meta+D
 Switch One Desktop Down=Meta+Ctrl+Down
@@ -305,8 +309,12 @@ _launch=Ctrl+Shift+Space
 [net.local.rclone-browser-1.8.0-a0b66c6-linux-x86_64.AppImage.desktop][Global Shortcuts]
 _launch=Meta+R
 
-[org.kde.dolphin.desktop][Global Shortcuts]
+[org.gnome.Nautilus.desktop][Global Shortcuts]
 _launch=Meta+E
+new-window=
+
+[org.kde.dolphin.desktop][Global Shortcuts]
+_launch=
 
 [org.kde.kcalc.desktop][Global Shortcuts]
 _launch=Calculator
@@ -324,7 +332,7 @@ _launch=Search; Alt+Space; Alt+F2
 ShowOSD=Display; Meta+P
 
 [org.kde.plasma-systemmonitor.desktop][Global Shortcuts]
-_launch=Ctrl+Shift+Esc; Meta+Esc
+_launch=Meta+Esc; Ctrl+Shift+Esc
 
 [org.kde.plasma.emojier.desktop][Global Shortcuts]
 _launch=Meta+Ctrl+Alt+Shift+Space; Meta+.
@@ -386,8 +394,11 @@ switch to next activity=
 switch to previous activity=
 toggle do not disturb=
 
+[rclone-browser-1.8.0-a0b66c6-linux-x86_64.AppImage.desktop][Global Shortcuts]
+_launch=Meta+R
+
 [systemsettings.desktop][Global Shortcuts]
-_launch=Meta+I; Tools
+_launch=Tools; Meta+I
 kcm-kscreen=
 kcm-lookandfeel=
 kcm-powerdevilprofilesconfig=
@@ -399,7 +410,7 @@ Map to fullscreen=Meta+Ctrl+F
 Map to screen 1=Meta+Ctrl+1
 Map to screen 2=Meta+Ctrl+2
 Next Profile=Meta+Ctrl+N
-Previous Profile=Meta+Ctrl+P
+Previous Profile=
 Toggle screen map selection=Meta+Ctrl+M
 Toggle stylus mode=Meta+Ctrl+S
 Toggle touch tool=Meta+Ctrl+T

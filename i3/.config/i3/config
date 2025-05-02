@@ -34,6 +34,16 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+
+# custom autostart
+
+# screenlayout script
+exec --no-startup-id ~/.screenlayout/default.sh
+
+# equibop (discord), keepassxc, 
+exec --no-startup-id equiobp
+
+
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -55,7 +65,10 @@ bindsym $mod+Return exec kitty
 bindsym Mod1+F4 kill
 
 # Lockscreen (win+alt+L)
-bindsym $mod+Mod1+L exec i3lock
+bindsym $mod+Mod1+l exec i3lock
+
+# Set Wallpaper
+exec --no-startup-id feh --bg-scale ~/ProtonDrive/Pictures/Wallpapers/aurora_borealis.png
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
