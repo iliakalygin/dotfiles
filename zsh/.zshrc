@@ -73,3 +73,6 @@ zsh -x 2> ~/zsh_debug.log
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
 
 export PATH=$PATH:/home/iliak/.spicetify
+
+# Created by `pipx` on 2025-05-10 20:06:04
+export PATH="$PATH:/home/iliak/.local/bin"
