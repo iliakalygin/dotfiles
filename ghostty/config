@@ -1,0 +1,12 @@
+# ghostty +show-config --default --docs
+# https://ghostty.org/docs/config
+
+theme = iceberg-dark
+background-opacity = 0.4
+background-blur = true
+font-size = 13
+window-height = 30
+window-width = 126
+
+
+
