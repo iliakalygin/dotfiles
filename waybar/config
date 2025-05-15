@@ -25,7 +25,13 @@
     "pulseaudio": {
         "scroll-step": 2,
         "on-click": "pavucontrol",
-        "tooltip": false
+        "tooltip": false,
+	"format": "{icon}   {volume}%",
+	"format-muted": "   0%",
+	"format-icons": {
+	    "default": "",
+	    "muted": ""
+	}
     },
     "tray": {
         "icon-size": 20
