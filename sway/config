@@ -81,8 +81,10 @@ default_floating_border normal 0
 font pango:Any_font_name 0.001
 
 # make all black
-client.focused          #000000 #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000 #000000
+client.focused                 #000000 #000000 #000000 #000000 #000000
+client.unfocused               #000000 #000000 #000000 #000000 #000000
+client.focused_inactive        #000000 #000000 #000000 #000000 #000000
+
 
 #### ### ### ###
 
