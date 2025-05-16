@@ -21,7 +21,8 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/iliak/ProtonDrive/Pictures/Wallpapers/aurora_borealis.png fill
+output DP-2 bg /home/iliak/ProtonDrive/Pictures/Wallpapers/aurora_borealis.png fill
+output DP-1 background #000000 solid_color
 #
 # Example configuration:
 #
