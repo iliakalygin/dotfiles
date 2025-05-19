@@ -13,22 +13,12 @@ set $left h
 set $down j
 set $up k
 set $right l
-# Your preferred terminal emulator
+# Terminal emulator
 set $term ghostty
-# Your preferred application launcher
+# Application launcher
 set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css
 
 ### Output configuration
-#
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output DP-2 bg /home/iliak/ProtonDrive/Pictures/Wallpapers/aurora_borealis.png fill
-output DP-1 background #000000 solid_color
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 output DP-2 resolution 2560x1440@239.972HZ position 2560,0
 output DP-1 resolution 2560x1440@143.912HZ position 0,0
@@ -64,8 +54,6 @@ input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
     pointer_accel 0
 }
-
-
 
 ### Autostart ###
 
@@ -191,7 +179,7 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
     bindsym $mod+w layout tabbed
-    bindsym $mod+Mod1+e layout toggle split
+    bindsym $mod+Mod2+e layout toggle split
 
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
@@ -255,8 +243,8 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
-    # Special key to take a screenshot with grim
-    bindsym Print exec griml
+    # Special key to take a screenshot
+    bindsym Print exec grim -g "$(slurp)" - | tee ~/Desktop/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
 
 #
 # Status Bar:
