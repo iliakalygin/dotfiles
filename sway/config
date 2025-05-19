@@ -23,6 +23,10 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 output DP-2 resolution 2560x1440@239.972HZ position 2560,0
 output DP-1 resolution 2560x1440@143.912HZ position 0,0
 
+# Wallpaper
+output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.jpg fill
+output DP-1 background #000000 solid_color
+
 ### Idle configuration
 #
 # Example configuration:
