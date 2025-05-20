@@ -1,6 +1,6 @@
 sudo pacman -S kitty zsh wofi waybar nvim
 
-git clone https://github.com/iliakalygin/dotfiles.git ~/git/dotfiles
+mv ~/.config/sway ~/.config/sway.bak
 
 ln -s ~/git/dotfiles/kitty ~/.config/kitty
 ln -s ~/git/dotfiles/sway ~/.config/sway
