@@ -13,33 +13,15 @@ end
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
--- Install all plugins in here
+-- Plugins
 require('lazy').setup({
-{
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    "MunifTanjim/nui.nvim",
-    -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
-  },
-  lazy = false, -- neo-tree will lazily load itself
-  ---@module "neo-tree"
-  ---@type neotree.Config?
-  opts = {
-    -- fill any relevant options here
-  },
-},
-
-{
-    "vague2k/vague.nvim",
-    config = function()
-        require("vague").setup({ transparent = true })
-        vim.cmd("colorscheme vague")
-        vim.cmd(":hi statusline guibg=NONE")
-    end
-}
+    require 'plugins.colortheme',
+    require 'plugins.neotree',
+    require 'plugins.bufferline',
+    require 'plugins.lualine',
+    require 'plugins.telescope',
+    require 'plugins.lsp',
 
 
 })
+
