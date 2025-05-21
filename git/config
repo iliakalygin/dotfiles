@@ -1,0 +1,19 @@
+[user]
+    name = Ilia Kalygin
+    email = ilia.kalygin@protonmail.com
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[advice]
+    addEmptyPathspec = false
+    pushNonFastForward = false
+    statusHints =  false
+
+[status]
+    branch = true
+    showStash = true
+    showUntrackedFiles = all
+
