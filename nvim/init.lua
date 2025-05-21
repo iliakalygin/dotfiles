@@ -30,6 +30,15 @@ require('lazy').setup({
   opts = {
     -- fill any relevant options here
   },
+},
+
+{
+    "vague2k/vague.nvim",
+    config = function()
+        require("vague").setup({ transparent = true })
+        vim.cmd("colorscheme vague")
+        vim.cmd(":hi statusline guibg=NONE")
+    end
 }
 
 
