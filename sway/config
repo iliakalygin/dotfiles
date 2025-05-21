@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Terminal emulator
-set $term alacritty
+set $term kitty
 # Application launcher
 set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css
 
