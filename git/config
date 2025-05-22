@@ -17,3 +17,5 @@
     showStash = true
     showUntrackedFiles = all
 
+[credential]
+    helper = /usr/local/bin/git-credential-libsecret
