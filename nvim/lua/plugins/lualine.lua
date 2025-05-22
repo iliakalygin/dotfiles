@@ -39,14 +39,14 @@ return {
     
     -- Custom Theme (altered iceberg_dark version)
     local custom_iceberg = require'lualine.themes.iceberg'
-    custom_iceberg.normal.a.bg = '#2e313f'
+    --custom_iceberg.normal.a.bg = '#2e313f'
     custom_iceberg.normal.b.bg = '#0f1117'
     custom_iceberg.normal.c.bg = '#0e0e0e'
-    custom_iceberg.visual.a.bg = '#2e313f'
+    --custom_iceberg.visual.a.bg = '#2e313f'
     custom_iceberg.visual.b.bg = '#0f1117'
-    custom_iceberg.insert.a.bg = '#2e313f'
+    --custom_iceberg.insert.a.bg = '#2e313f'
     custom_iceberg.insert.b.bg = '#0f1117'
-    custom_iceberg.replace.a.bg = '#2e313f' 
+    --custom_iceberg.replace.a.bg = '#2e313f' 
     custom_iceberg.replace.b.bg = '#0f1117'
      
 
