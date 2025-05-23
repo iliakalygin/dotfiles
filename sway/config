@@ -65,8 +65,10 @@ exec ~/.local/bin/portal-sway.sh
 exec equibop
 exec steam
 exec org.keepassxc.KeePassXC
+exec swaymsg focus output "DP-2"
 
-#### ### ### ###
+
+#### ### ### ####
 
 
 ### No borders ###
@@ -106,6 +108,12 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
 
     # Lockscreen
     bindsym $mod+Mod1+L exec swaylock -f -c 000000
+    
+    # Disable secondary monitor (to enable it again recload the config with ctrl+shift+c)
+    bindsym $mod+P output "DP-1" disable
+    
+    # Open Discord (equibop)
+    bindsym $mod+Shift+D exec equibop
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -146,29 +154,53 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
     bindsym $mod+Shift+Right move right
 #
 # Workspaces:
-#
+
+    # Workpspaces names
+    set $workspace_1 1
+    set $workspace_2 2 
+    set $workspace_3 3
+    set $workspace_4 4
+    set $workspace_5 5 
+    set $workspace_6 6
+    set $workspace_7 7
+    set $workspace_8 8 
+    set $workspace_9 9
+    set $workspace_0 10
+
+    # Assign workspace per monitor
+    workspace $workspace_1 output DP-2
+    workspace $workspace_2 output DP-2
+    workspace $workspace_3 output DP-2
+    workspace $workspace_4 output DP-2
+    workspace $workspace_5 output DP-2
+    workspace $workspace_6 output DP-2
+    workspace $workspace_7 output DP-2
+    workspace $workspace_8 output DP-2
+    workspace $workspace_9 output DP-1
+    workspace $workspace_0 output DP-1
+
     # Switch to workspace
-    # bindsym $mod+1 workspace number odereso
-    # bindsym $mod+2 workspace number 2
-    # bindsym $mod+3 workspace number 3
-    # bindsym $mod+4 workspace number 4
-    # bindsym $mod+5 workspace number 5
-    # bindsym $mod+6 workspace number 6
-    # bindsym $mod+7 workspace number 7
-    # bindsym $mod+8 workspace number 8
-    # bindsym $mod+9 workspace number 9
-    # bindsym $mod+0 workspace number 10
+    bindsym $mod+1 workspace $workspace_1
+    bindsym $mod+2 workspace $workspace_2
+    bindsym $mod+3 workspace $workspace_3
+    bindsym $mod+4 workspace $workspace_4
+    bindsym $mod+5 workspace $workspace_5
+    bindsym $mod+6 workspace $workspace_6
+    bindsym $mod+7 workspace $workspace_7
+    bindsym $mod+8 workspace $workspace_8
+    bindsym $mod+9 workspace $workspace_9
+    bindsym $mod+0 workspace $workspace_0
     # Move focused container to workspace
-    # bindsym $mod+Shift+1 move container to workspace number 1
-    # bindsym $mod+Shift+2 move container to workspace number 2
-    # bindsym $mod+Shift+3 move container to workspace number 3
-    # bindsym $mod+Shift+4 move container to workspace number 4
-    # bindsym $mod+Shift+5 move container to workspace number 5
-    # bindsym $mod+Shift+6 move container to workspace number 6
-    # bindsym $mod+Shift+7 move container to workspace number 7
-    # bindsym $mod+Shift+8 move container to workspace number 8
-    # bindsym $mod+Shift+9 move container to workspace number 9
-    # bindsym $mod+Shift+0 move container to workspace number 10
+    bindsym $mod+Shift+1 move container to workspace $workspace_1
+    bindsym $mod+Shift+2 move container to workspace $workspace_2
+    bindsym $mod+Shift+3 move container to workspace $workspace_3
+    bindsym $mod+Shift+4 move container to workspace $workspace_4
+    bindsym $mod+Shift+5 move container to workspace $workspace_5
+    bindsym $mod+Shift+6 move container to workspace $workspace_6
+    bindsym $mod+Shift+7 move container to workspace $workspace_7
+    bindsym $mod+Shift+8 move container to workspace $workspace_8
+    bindsym $mod+Shift+9 move container to workspace $workspace_9
+    bindsym $mod+Shift+0 move container to workspace $workspace_0
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 #
@@ -213,7 +245,7 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
 #
 mode "resize" {
     # left will shrink the containers width
-    # right will grow the containers width
+    # right will grow the c/modontainers width
     # up will shrink the containers height
     # down will grow the containers height
     bindsym $left resize shrink width 10px
@@ -258,8 +290,8 @@ bar {
     swaybar_command waybar
 }
 
-include /etc/sway/config.d/*
-include ~/.config/sway/config.d/*.conf
+#include /etc/sway/config.d/*
+#include ~/.config/sway/config.d/*.conf
 
 # Enable floating windows for apps
 for_window [app_id="keepassxc"] floating enable
