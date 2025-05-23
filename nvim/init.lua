@@ -30,3 +30,8 @@ require('lazy').setup({
 
 })
 
+-- Set cursor shape on exit
+vim.cmd [[
+  autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300
+]]
+
