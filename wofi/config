@@ -1,10 +1,10 @@
 show=drun
 width=50%
 height=50%
-prompt=Search...
+prompt=
 location=center
 gtk-dark=true
-allow_images=true
+allow_images=false
 image_size=32
 insensitive=true
 allow_markup=true

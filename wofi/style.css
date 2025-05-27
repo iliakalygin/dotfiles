@@ -1,40 +1,44 @@
-window {
-  background-color: #171717;
-}
-
 * {
-  font-family: "Fira Code";
-  color: #fff;
+    font-family: "Iosevka NerdFont";
+    font-size: 18px;
+    border: none;
 }
 
-#scroll {
-  padding: 0.5rem;
-}
-
-#input {
-  background-color: #262626;
-  outline: none;
-  box-shadow: none;
-  border: 0;
-  border-radius: 0;
-  font-size: 1rem;
-  padding: 0.5rem;
-}
-
-#inner-box {
-  margin: 0.5rem;
-  font-size: 1rem;
-}
-
-#img {
-  margin: 10px 10px;
+window {
+    background-color: #202020;
+    border: none;
+    padding: 0px;
 }
 
 #entry {
-  border-radius: 0.5rem;
+    color: #6B6B6B;
 }
 
 #entry:selected {
-  background-color: #262626;
-  outline: none;
+    outline: none;
+    color: #c1c1c1;
+    background-color: #000000;
 }
+
+#entry:active {
+    color: #000000;
+}
+
+#input {
+    color: #c1c1c1;
+    background: #202020;
+}
+
+#scroll {
+    background-color: #202020;
+}
+
+#outer-box {
+    margin: 0;
+    padding: 0;
+}
+
+#list {
+    padding: 0 0 0 0;
+}
+
