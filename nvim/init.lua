@@ -35,3 +35,6 @@ vim.cmd [[
   autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300
 ]]
 
+-- theme
+--local colorscheme = "base16-black-metal-gorgoroth"
+--vim.cmd("colorscheme " .. colorscheme)
