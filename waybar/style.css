@@ -1,7 +1,7 @@
 * {
     border:        none;
     border-radius: 0;
-    font-family:   Sans;
+    font-family:   Iosevka NerdFont;
     font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
@@ -9,17 +9,12 @@
 }
 
 window {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(14, 14, 14, 1);
-}
-
-window#waybar.solo {
-    color:      rgba(217, 216, 216, 1);
-    background: rgba(14, 14, 14, 1);
+    color:      rgba(107, 107, 107, 255);
+    background-color: rgba(24, 24, 24, 255);
 }
 
 #workspaces {
-    margin: 0 5px;
+    margin: 0 0px;
 }
 
 #workspaces button {
@@ -31,9 +26,9 @@ window#waybar.solo {
     color:      rgba(217, 216, 216, 1);
 }
 
-#workspaces button.lifocused {
-    /*border-top: 3px solid rgba(217, 216, 216, 0);*/
-    border-bottom: 2px solid rgba(217, 216, 216, 1);
+#workspaces button.focused {
+    color: rgba(66, 55, 44, 255);
+    background: rgba(148, 147, 136, 255);
 }
 
 #workspaces button.urgent {
@@ -41,13 +36,21 @@ window#waybar.solo {
 }
 
 #pulseaudio {
-    margin:     0px 0px 0px 10px;
+    margin:     0px 3px 0px 3px;
     min-width:  25px;
 }
 
 #clock {
-    margin:     0px 16px 0px 7px;
+    margin:     0px 10px 0px 3px;
     min-width:  140px;
+}
+
+#memory {
+    margin: 0px 3px 0px 3px;
+}
+
+#cpu {
+    margin: 0px 3px 0px 3px;
 }
 
 #tray * {
