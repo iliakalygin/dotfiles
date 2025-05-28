@@ -5,7 +5,7 @@
 
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["cpu", "custom/separator", "memory", "custom/separator", "pulseaudio", "custom/separator", "clock"],
+    "modules-right": ["tray","custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "pulseaudio", "custom/separator", "clock"],
     "sway/mode": {
         "format": " {}"
     },
