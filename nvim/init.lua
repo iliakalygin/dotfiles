@@ -36,5 +36,5 @@ vim.cmd [[
 ]]
 
 -- theme
---local colorscheme = "base16-black-metal-gorgoroth"
---vim.cmd("colorscheme " .. colorscheme)
+local colorscheme = "base16-black-metal-gorgoroth"
+vim.cmd("colorscheme " .. colorscheme)
