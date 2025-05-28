@@ -61,6 +61,10 @@ input "1133:50503:Logitech_USB_Receiver" {
 
 ### Autostart ###
 
+exec_always {
+    source ~/.config/sway/env
+}
+
 exec ~/.local/bin/portal-sway.sh
 exec equibop
 exec steam
