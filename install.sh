@@ -1,4 +1,4 @@
-sudo pacman -S kitty zsh wofi waybar nvim starship fastfetch tmux
+sudo pacman -S kitty zsh wofi waybar nvim starship fastfetch tmux lsd
 
 ln -s ~/git/dotfiles/kitty ~/.config/kitty
 ln -s ~/git/dotfiles/sway ~/.config/sway
