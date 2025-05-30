@@ -4,6 +4,16 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+set $gtk_theme Adwaita-dark
+
+exec_always {
+    export GTK_THEME=$gtk_theme
+    export XCURSOR_THEME=Adwaita
+    export QT_STYLE_OVERRIDE=kvantum
+    export GTK_ICON_THEME=Papirus-Dark
+}
+
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -61,13 +71,9 @@ input "1133:50503:Logitech_USB_Receiver" {
 
 ### Autostart ###
 
-exec_always {
-    source ~/.config/sway/env
-}
-
 exec ~/.local/bin/portal-sway.sh
-exec equibop
-exec steam
+exec io.github.equicord.equibop
+exec com.valvesoftware.Steam
 exec org.keepassxc.KeePassXC
 exec swaymsg focus output "DP-2"
 
@@ -284,7 +290,7 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
     # Special key to take a screenshot
-    bindsym Print exec grim -g "$(slurp)" - | tee ~/Desktop/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
+    bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
 
 #
 # Status Bar:
@@ -302,3 +308,8 @@ for_window [app_id="keepassxc"] floating enable
 for_window [app_id="dolphin"] floating enable
 for_window [app_id="org.gnome.Nautilus"] floating enable
 for_window [app_id="pulseaudio"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
+for_window [app_id="com.system76.Popsicle"] floating enable
+for_window [app_id="com.usebottles.bottles"] floating enable
+#for_window [app_id=""] floating enable
+
