@@ -31,6 +31,7 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 
 output DP-2 resolution 2560x1440@239.972HZ position 2560,0
 output DP-1 resolution 2560x1440@143.912HZ position 0,0
+output DP-1 disable
 
 # Wallpaper
 output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.jpg fill
@@ -73,9 +74,8 @@ input "1133:50503:Logitech_USB_Receiver" {
 #exec ~/.local/bin/portal-sway.sh
 exec io.github.equicord.equibop
 exec com.valvesoftware.Steam
-exec keepassxc
+exec org.keepassxc.KeePassXC
 exec swaymsg focus output "DP-2"
-exec /usr/lib/xdg-desktop-portal-wlr
 
 #### ### ### ####
 
@@ -118,8 +118,8 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
     # Lockscreen
     bindsym $mod+Mod1+L exec swaylock -f -c 000000
     
-    # Disable secondary monitor (to enable it again recload the config with ctrl+shift+c)
-    bindsym $mod+Mod1+P output "DP-1" disable
+    # Enable secondary monitor (to disable it again recload the config with ctrl+shift+c)
+    bindsym $mod+Mod1+P output "DP-1" enable
     
     # Open Discord (equibop)
     bindsym $mod+Shift+D exec equibop
