@@ -27,8 +27,7 @@ window {
 }
 
 #workspaces button.focused {
-    color: rgba(66, 55, 44, 255);
-    background: rgba(148, 147, 136, 255);
+    color: rgba(255, 255, 255, 255);
 }
 
 #workspaces button.urgent {
