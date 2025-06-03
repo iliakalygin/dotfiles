@@ -13,7 +13,6 @@ exec_always {
     MOZ_ENABLE_WAYLAND=1
 }       
 
-
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -70,6 +69,12 @@ input "1133:50503:Logitech_USB_Receiver" {
     pointer_accel 0
 }
 
+# Set keyboard layout to English US international
+input * {
+    xkb_layout us
+    xkb_variant intl
+}
+
 ### Autostart ###
 
 #exec ~/.local/bin/portal-sway.sh
@@ -121,7 +126,7 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
     bindsym $mod+space exec $menu
 
     # Start File Manager
-    #bindsym $mod+e nautilus --new-window %U
+    bindsym $mod+Mod1+e exec pcmanfm
 
     # Lockscreen
     bindsym $mod+Mod1+L exec swaylock -f -c 000000
@@ -339,7 +344,7 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="com.system76.Popsicle"] floating enable
 for_window [app_id="com.usebottles.bottles"] floating enable
 for_window [app_id="timeshift-gtk"] floating enable
-#for_window [app_id=""] floating enable
+for_window [instance="pcmanfm"] floating enable
 #for_window [app_id=""] floating enable
 #for_window [app_id=""] floating enable
 
