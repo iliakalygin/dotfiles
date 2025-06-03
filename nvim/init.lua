@@ -25,6 +25,8 @@ require('lazy').setup({
     require 'plugins.misc',
     require 'plugins.snacks',
     require 'plugins.render-markdown',
+    require 'plugins.autocompletion',
+    require 'plugins.bufferline',
 })
 
 -- Set cursor shape on exit
