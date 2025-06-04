@@ -1,4 +1,4 @@
-sudo pacman -S kitty zsh wofi waybar nvim starship fastfetch tmux lsd lazygit gnome-themes-extra
+sudo pacman -S kitty zsh wofi waybar nvim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm
 
 ln -s ~/git/dotfiles/kitty ~/.config/kitty
 ln -s ~/git/dotfiles/sway ~/.config/sway
