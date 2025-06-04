@@ -345,7 +345,7 @@ for_window [app_id="com.system76.Popsicle"] floating enable
 for_window [app_id="com.usebottles.bottles"] floating enable
 for_window [app_id="timeshift-gtk"] floating enable
 for_window [instance="pcmanfm"] floating enable
-#for_window [app_id=""] floating enable
+for_window [instance="sfml-app"] floating enable
 #for_window [app_id=""] floating enable
 
 
