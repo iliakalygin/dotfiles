@@ -74,3 +74,4 @@ export PATH=$PATH:/usr/local/go/bin
 eval "$(starship init zsh)"
 
 
+export GPG_TTY=$(tty)
