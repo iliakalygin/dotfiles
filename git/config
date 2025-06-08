@@ -1,6 +1,7 @@
 [user]
     name = Ilia Kalygin
     email = ilia.kalygin@protonmail.com
+	signingkey = 41C05CC6E643B657
 
 [core]
     compression = 9
@@ -17,5 +18,11 @@
     showStash = true
     showUntrackedFiles = all
 
-[credential]
-    helper = /usr/local/bin/git-credential-libsecret
+# [credential]
+#    helper = /usr/local/bin/git-credential-libsecret
+
+[init]
+	defaultBranch = main
+
+[commit]
+	gpgsign = true
