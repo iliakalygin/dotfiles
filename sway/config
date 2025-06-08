@@ -1,4 +1,4 @@
-#efault config for sway
+
 #
 # Copy this to ~/.config/sway/config and edit it to your liking.
 #
@@ -346,6 +346,8 @@ for_window [app_id="com.usebottles.bottles"] floating enable
 for_window [app_id="timeshift-gtk"] floating enable
 for_window [instance="pcmanfm"] floating enable
 for_window [instance="sfml-app"] floating enable
+for_window [app_id="gwenview"] floating enable
 #for_window [app_id=""] floating enable
+
 
 
