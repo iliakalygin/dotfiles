@@ -11,6 +11,12 @@ exec_always {
     export QT_STYLE_OVERRIDE=kvantum
     export GTK_ICON_THEME=Papirus
     MOZ_ENABLE_WAYLAND=1
+    # Flameshot
+    export SDL_VIDEODRIVER=wayland
+    export _JAVA_AWT_WM_NONREPARENTING=1
+    export QT_QPA_PLATFORM=wayland
+    export XDG_CURRENT_DESKTOP=sway
+    export XDG_SESSION_DESKTOP=sway
 }       
 
 ### Variables
@@ -83,6 +89,7 @@ exec com.valvesoftware.Steam
 exec org.keepassxc.KeePassXC
 exec swaymsg focus output "DP-2"
 exec swaymsg layout tabbed
+exec dropbox
 
 #### ### ### ####
 
@@ -319,10 +326,15 @@ bindsym $mod+r mode "resize"
     # Special keys to adjust brightness via brightnessctl
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
-    # Special key to take a screenshot
+    
+    #
+    # Screenshot setups:
+    # 
     #bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
-    bindsym Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
-
+    #bindsym Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
+    bindsym Print exec flameshot gui
+    for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+    
 
 #
 # Status Bar:
@@ -347,7 +359,9 @@ for_window [app_id="timeshift-gtk"] floating enable
 for_window [instance="pcmanfm"] floating enable
 for_window [instance="sfml-app"] floating enable
 for_window [app_id="gwenview"] floating enable
+for_window [class="Pinentry-gtk"] floating enable
 #for_window [app_id=""] floating enable
+
 
 
 
