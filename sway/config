@@ -91,6 +91,11 @@ exec swaymsg focus output "DP-2"
 exec swaymsg layout tabbed
 exec dropbox
 
+# Flameshot stuff
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
 #### ### ### ####
 
 ### Clipboard manager (cliphist)
@@ -331,9 +336,10 @@ bindsym $mod+r mode "resize"
     # Screenshot setups:
     # 
     #bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
-    #bindsym Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
+    bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
     bindsym Print exec flameshot gui
-    for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+    # for_window doesnt work with only 1 monitor on
+    #for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
     
 
 #
