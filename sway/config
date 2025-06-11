@@ -10,7 +10,8 @@ exec_always {
     export XCURSOR_THEME=Adwaita
     export QT_STYLE_OVERRIDE=kvantum
     export GTK_ICON_THEME=Papirus
-    MOZ_ENABLE_WAYLAND=1
+    export MOZ_ENABLE_WAYLAND=1
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
     # Flameshot
     export SDL_VIDEODRIVER=wayland
     export _JAVA_AWT_WM_NONREPARENTING=1
@@ -335,11 +336,32 @@ bindsym $mod+r mode "resize"
     #
     # Screenshot setups:
     # 
+    ## grim + slurp + swappy (the most scuffed solution)
     #bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
-    bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
-    bindsym Print exec flameshot gui
+    #bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
+    
+    ## Flameshot (scuffed if switching between 1 and 2 monitor setup, fine for both or just one) 
+    bindsym Shift+Print exec flameshot gui
     # for_window doesnt work with only 1 monitor on
-    #for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+    for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+    
+    ## Satty best solution so far
+    # inspiration: https://www.reddit.com/r/swaywm/comments/ghnlea/comment/fqnzxkx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+    set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
+    #set $printscreen_mode 'printscreen (r:region, f:full, w:window)'
+    #mode $printscreen_mode {
+    #    bindsym r exec swaymsg 'mode "default"' && grim -t ppm -g "$(slurp -d)" - | $satty
+    #    bindsym f exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+    #    bindsym w exec swaymsg 'mode "default"' && swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -t ppm -g - - | $satty
+
+    #    bindsym Return mode "default"
+    #    bindsym Escape mode "default"
+    #}
+    #bindsym $mod+Shift+p mode $printscreen_mode
+    # Use only satty window mode
+    bindsym Print exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+
+
     
 
 #
@@ -363,7 +385,7 @@ for_window [app_id="com.system76.Popsicle"] floating enable
 for_window [app_id="com.usebottles.bottles"] floating enable
 for_window [app_id="timeshift-gtk"] floating enable
 for_window [instance="pcmanfm"] floating enable
-for_window [instance="sfml-app"] floating enable
+for_window [class="SFML Window"] floating enable
 for_window [app_id="gwenview"] floating enable
 for_window [class="Pinentry-gtk"] floating enable
 #for_window [app_id=""] floating enable
