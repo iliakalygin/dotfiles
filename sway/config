@@ -1,9 +1,6 @@
+# Sway config
 
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
+# Environment variables
 exec_always {
     export XDG_BACKEND=wlroots
     export GTK_THEME=Adwaita-dark
@@ -20,8 +17,8 @@ exec_always {
     export XDG_SESSION_DESKTOP=sway
 }       
 
-### Variables
-#
+
+# Variables
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 # Home row direction keys, like vim
@@ -34,43 +31,19 @@ set $term kitty
 # Application launcher
 set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css
 
-### Output configuration
 
+# Output configuration
 output DP-2 resolution 2560x1440@239.972HZ position 2560,0
 output DP-1 resolution 2560x1440@143.912HZ position 0,0
 output DP-1 disable
+
 
 # Wallpaper
 output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.jpg fill
 output DP-1 background #000000 solid_color
 
-### Idle configuration
-#
-# Example configuration:
-#
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'i
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
-
+# Input configuration
 input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
     pointer_accel 0
@@ -82,9 +55,7 @@ input * {
     xkb_variant intl
 }
 
-### Autostart ###
-
-#exec ~/.local/bin/portal-sway.sh
+#Autostart
 exec io.github.equicord.equibop
 exec com.valvesoftware.Steam
 exec org.keepassxc.KeePassXC
@@ -97,17 +68,15 @@ exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec hash dbus-update-activation-environment 2>/dev/null && \
      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
-#### ### ### ####
 
-### Clipboard manager (cliphist)
+#Clipboard manager (cliphist)
 # https://github.com/sentriz/cliphist
-
 exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | wofi --dmenu -p "Select item to copy" --lines 10 | cliphist decode | wl-copy
 bindsym $mod+Mod1+v exec cliphist wipe
 
-### No borders ###
-#
+
+# No borders
 default_border none
 default_floating_border none
 titlebar_padding 1
@@ -122,180 +91,143 @@ client.unfocused               #000000 #000000 #000000 #000000 #000000
 client.focused_inactive        #000000 #000000 #000000 #000000 #000000
 
 
-#### ### ### ###
+# Key bindings
 
-
-### Key bindings
-#
 # Basics:
-#
-    # Start a terminal
-    bindsym $mod+Return exec $term
 
-    # Kill focused window
-    bindsym Mod1+f4 kill
+bindsym $mod+Return exec $term
+bindsym Mod1+f4 kill
+bindsym $mod+space exec $menur
+bindsym $mod+Mod1+e exec pcmanfm
+bindsym $mod+Mod1+L exec swaylock -f -c 000000
+bindsym $mod+Shift+D exec equibop
+bindsym $mod+Shift+c reload
 
-    # Start your launcher
-    bindsym $mod+space exec $menu
+# Drag floating windows by holding down $mod and left mouse button.
+# Resize them with right mouse button + $mod.
+# Despite the name, also works for non-floating windows.
+# Change normal to inverse to use left mouse button for resizing and right
+# mouse button for dragging.
+floating_modifier $mod normal
 
-    # Start File Manager
-    bindsym $mod+Mod1+e exec pcmanfm
+# Enable secondary monitor (to disable it again recload the config with ctrl+shift+c)
+bindsym $mod+Mod1+P output "DP-1" enable
 
-    # Lockscreen
-    bindsym $mod+Mod1+L exec swaylock -f -c 000000
-    
-    # Enable secondary monitor (to disable it again recload the config with ctrl+shift+c)
-    bindsym $mod+Mod1+P output "DP-1" enable
-    
-    # Open Discord (equibop)
-    bindsym $mod+Shift+D exec equibop
+# Exit sway (logs you out of your Wayland session)
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
 
-    # Reload the configuration file
-    bindsym $mod+Shift+c reload
+# Moving around
+# Move your focus around
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym Mod1+Tab focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 
-    # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym Mod1+Tab focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
+# Move the focused window with the same, but add Shift
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+# Ditto, with arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
 # Workspaces:
 
-    # Workpspaces names
-    set $workspace_1 1
-    set $workspace_2 2 
-    set $workspace_3 3
-    set $workspace_4 4
-    set $workspace_5 5 
-    set $workspace_6 6
-    set $workspace_7 7
-    set $workspace_8 8 
-    set $workspace_9 9
-    set $workspace_0 10
+# Workpspaces names
+set $workspace_1 1
+set $workspace_2 2 
+set $workspace_3 3
+set $workspace_4 4
+set $workspace_5 5 
+set $workspace_6 6
+set $workspace_7 7
+set $workspace_8 8 
+set $workspace_9 9
+set $workspace_0 10
 
-    # Assign workspace per monitor
-    workspace $workspace_1 output DP-2
-    workspace $workspace_2 output DP-2
-    workspace $workspace_3 output DP-2
-    workspace $workspace_4 output DP-2
-    workspace $workspace_5 output DP-2
-    workspace $workspace_6 output DP-2
-    workspace $workspace_7 output DP-2
-    workspace $workspace_8 output DP-2
-    workspace $workspace_9 output DP-1
-    workspace $workspace_0 output DP-1
+# Assign workspace per monitor
+workspace $workspace_1 output DP-2
+workspace $workspace_2 output DP-2
+workspace $workspace_3 output DP-2
+workspace $workspace_4 output DP-2
+workspace $workspace_5 output DP-2
+workspace $workspace_6 output DP-2
+workspace $workspace_7 output DP-2
+workspace $workspace_8 output DP-2
+workspace $workspace_9 output DP-1
+workspace $workspace_0 output DP-1
 
-    # Switch to workspace
-    bindsym $mod+1 workspace $workspace_1
-    bindsym $mod+2 workspace $workspace_2
-    bindsym $mod+3 workspace $workspace_3
-    bindsym $mod+4 workspace $workspace_4
-    bindsym $mod+5 workspace $workspace_5
-    bindsym $mod+6 workspace $workspace_6
-    bindsym $mod+7 workspace $workspace_7
-    bindsym $mod+8 workspace $workspace_8
-    bindsym $mod+9 workspace $workspace_9
-    bindsym $mod+0 workspace $workspace_0
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace $workspace_1
-    bindsym $mod+Shift+2 move container to workspace $workspace_2
-    bindsym $mod+Shift+3 move container to workspace $workspace_3
-    bindsym $mod+Shift+4 move container to workspace $workspace_4
-    bindsym $mod+Shift+5 move container to workspace $workspace_5
-    bindsym $mod+Shift+6 move container to workspace $workspace_6
-    bindsym $mod+Shift+7 move container to workspace $workspace_7
-    bindsym $mod+Shift+8 move container to workspace $workspace_8
-    bindsym $mod+Shift+9 move container to workspace $workspace_9
-    bindsym $mod+Shift+0 move container to workspace $workspace_0
-    # Note: workspaces can have any name you want, not just numbers.
-    # We just use 1-10 as the default.
+# Switch to workspace
+bindsym $mod+1 workspace $workspace_1
+bindsym $mod+2 workspace $workspace_2
+bindsym $mod+3 workspace $workspace_3
+bindsym $mod+4 workspace $workspace_4
+bindsym $mod+5 workspace $workspace_5
+bindsym $mod+6 workspace $workspace_6
+bindsym $mod+7 workspace $workspace_7
+bindsym $mod+8 workspace $workspace_8
+bindsym $mod+9 workspace $workspace_9
+bindsym $mod+0 workspace $workspace_0
 
-    # Applications shortcuts
-    assign [app_id="librewolf"] $workspace_2
-    assign [app_id="md.obsidian.Obsidian"] $workspace_3
-    assign [app_id="equibop"] $workspace_4
-    assign [app_id="com.spotify.Client"] $workspace_7
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $workspace_1
+bindsym $mod+Shift+2 move container to workspace $workspace_2
+bindsym $mod+Shift+3 move container to workspace $workspace_3
+bindsym $mod+Shift+4 move container to workspace $workspace_4
+bindsym $mod+Shift+5 move container to workspace $workspace_5
+bindsym $mod+Shift+6 move container to workspace $workspace_6
+bindsym $mod+Shift+7 move container to workspace $workspace_7
+bindsym $mod+Shift+8 move container to workspace $workspace_8
+bindsym $mod+Shift+9 move container to workspace $workspace_9
+bindsym $mod+Shift+0 move container to workspace $workspace_0
 
 
-    bindsym Mod1+2 exec "swaymsg workspace $workspace_2; exec librewolf"
-    bindsym Mod1+3 exec "swaymsg workspace $workspace_3; exec md.obsidian.Obsidian"
-    bindsym Mod1+4 exec "swaymsg workspace $workspace_4; exec io.github.equicord.equibop"
-    bindsym Mod1+7 exec "swaymsg workspace $workspace_7; exec com.spotify.Client"
+# Applications shortcuts
+assign [app_id="librewolf"] $workspace_2
+assign [app_id="md.obsidian.Obsidian"] $workspace_3
+assign [app_id="equibop"] $workspace_4
+assign [app_id="com.spotify.Client"] $workspace_7
 
-#
-# Layout stuff:
-#
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    #bindsym $mod+b splith
-    #bindsym $mod+v splitv
-
-    # Switch the current container between different layout styles
-    bindsym $mod+s layout stacking
-    bindsym $mod+w layout tabbed
-    bindsym $mod+e layout toggle split
-
-    # Set tabbed layout as default
-    workspace_auto_back_and_forth yes
-    for_window [class=".*"] layout tabbed
+bindsym Mod1+2 exec "swaymsg workspace $workspace_2; exec librewolf"
+bindsym Mod1+3 exec "swaymsg workspace $workspace_3; exec md.obsidian.Obsidian"
+bindsym Mod1+4 exec "swaymsg workspace $workspace_4; exec io.github.equicord.equibop"
+bindsym Mod1+7 exec "swaymsg workspace $workspace_7; exec com.spotify.Client"
 
 
-    # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+# Layout stuff
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+# Set tabbed layout as default
+workspace_auto_back_and_forth yes
+for_window [class=".*"] layout tabbed
 
-    # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
 
-    # Swap focus between the tiling area and the floating area
-    bindsym $mod+Mod1+space focus mode_toggle
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
 
-    # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
-    # Sway has a "scratchpad", which is a bag of holding for windows.
-    # You can send windows there and get them back later.
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
 
-    # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+# Swap focus between the tiling area and the floating area
+bindsym $mod+Mod1+space focus mode_toggle
 
-    # Show the next scratchpad window or hide the focused scratchpad window.
-    # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+minus scratchpad show
-#
+# Move focus to the parent container
+bindsym $mod+a focus parent
+
+
 # Resizing containers:
-#
 mode "resize" {
     # left will shrink the containers width
     # right will grow the c/modontainers width
@@ -317,63 +249,54 @@ mode "resize" {
     bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-#
-# Utilities:
-#
-    # Special keys to adjust volume via PulseAudio
-    bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-    bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
-    bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
-    bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
-    bindsym XF86AudioPlay exec playerctl play-pause
 
-    # Special keys to adjust brightness via brightnessctl
-    bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
-    bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
-    
-    #
-    # Screenshot setups:
-    # 
-    ## grim + slurp + swappy (the most scuffed solution)
-    #bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
-    #bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
-    
-    ## Flameshot (scuffed if switching between 1 and 2 monitor setup, fine for both or just one) 
-    bindsym Shift+Print exec flameshot gui
-    # for_window doesnt work with only 1 monitor on
-    for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
-    
-    ## Satty best solution so far
-    # inspiration: https://www.reddit.com/r/swaywm/comments/ghnlea/comment/fqnzxkx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-    set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
-    #set $printscreen_mode 'printscreen (r:region, f:full, w:window)'
-    #mode $printscreen_mode {
-    #    bindsym r exec swaymsg 'mode "default"' && grim -t ppm -g "$(slurp -d)" - | $satty
-    #    bindsym f exec swaymsg 'mode "default"' && grim -t ppm - | $satty
-    #    bindsym w exec swaymsg 'mode "default"' && swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -t ppm -g - - | $satty
+# Special keys to adjust volume via PulseAudio
+bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
 
-    #    bindsym Return mode "default"
-    #    bindsym Escape mode "default"
-    #}
-    #bindsym $mod+Shift+p mode $printscreen_mode
-    # Use only satty window mode
-    bindsym Print exec swaymsg 'mode "default"' && grim -t ppm - | $satty
-
-
-    
+# Special keys to adjust brightness via brightnessctl
+bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
+bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
 
 #
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
+# Screenshot setups:
+# 
+## grim + slurp + swappy (the most scuffed solution)
+#bindsym Print exec grim -g "$(slurp)" - | tee ~/Screenshots/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy
+#bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
+
+## Flameshot (scuffed if switching between 1 and 2 monitor setup, fine for both or just one) 
+bindsym Shift+Print exec flameshot gui
+# for_window doesnt work with only 1 monitor on
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+
+## Satty best solution so far
+# inspiration: https://www.reddit.com/r/swaywm/comments/ghnlea/comment/fqnzxkx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
+#set $printscreen_mode 'printscreen (r:region, f:full, w:window)'
+#mode $printscreen_mode {
+#    bindsym r exec swaymsg 'mode "default"' && grim -t ppm -g "$(slurp -d)" - | $satty
+#    bindsym f exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+#    bindsym w exec swaymsg 'mode "default"' && swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"' | grim -t ppm -g - - | $satty
+
+#    bindsym Return mode "default"
+#    bindsym Escape mode "default"
+#}
+#bindsym $mod+Shift+p mode $printscreen_mode
+# Use only satty window mode
+bindsym Print exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+
+
+# Waybar
 bar {
     swaybar_command waybar
 }
 
-#include /etc/sway/config.d/*
-#include ~/.config/sway/config.d/*.conf
 
 # Enable floating windows for apps
 for_window [app_id="keepassxc"] floating enable
@@ -389,7 +312,3 @@ for_window [class="SFML Window"] floating enable
 for_window [app_id="gwenview"] floating enable
 for_window [class="Pinentry-gtk"] floating enable
 #for_window [app_id=""] floating enable
-
-
-
-
