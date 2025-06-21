@@ -1,4 +1,20 @@
-# Created by newuser for 5.9
+
+# Environment variables
+export XDG_BACKEND=wlroots
+export GTK_THEME=Adwaita-dark
+export XCURSOR_THEME=Adwaita
+#export QT_STYLE_OVERRIDE=kvantum
+export GTK_ICON_THEME=Papirus
+export MOZ_ENABLE_WAYLAND=1
+#export __GLX_VENDOR_LIBRARY_NAME=nvidia
+# Flameshot
+export SDL_VIDEODRIVER=wayland
+export _JAVA_AWT_WM_NONREPARENTING=1
+export QT_QPA_PLATFORM=wayland-egl
+export ELM_DISPLAY=wl
+export XDG_CURRENT_DESKTOP=sway
+export XDG_SESSION_DESKTOP=sway
+
 
 # set nvim as deafult
 export EDITOR="nvim"
