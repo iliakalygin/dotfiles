@@ -1,19 +1,15 @@
-sudo pacman -S kitty zsh wofi waybar nvim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm
+sudo xbps-install -Syv kitty zsh wofi Waybar neovim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm
 
-ln -s ~/git/dotfiles/kitty ~/.config/kitty
-ln -s ~/git/dotfiles/sway ~/.config/sway
-ln -s ~/git/dotfiles/zsh ~/.config/zsh
-ln -s ~/git/dotfiles/wofi ~/.config/wofi
-ln -s ~/git/dotfiles/waybar ~/.config/waybar
-ln -s ~/git/dotfiles/nvim ~/.config/nvim
-ln -s ~/git/dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/git/dotfiles/starship/starship.toml ~/.config/starship.toml
-ln -s ~/git/dotfiles/git ~/.config/git
-ln -s ~/git/dotfiles/fastfetch ~/.config/fastfetch
-ln -s ~/git/dotfiles/tmux ~/.config/tmux
-ln -s ~/git/dotfiles/git ~/.config/git
-ln -s ~/git/dotfiles/gtk-3.0 ~/.config/gtk-3.0
-ln -s ~/git/dotfiles/gtk-4.0 ~/.config/gtk-4.0
-
-
-
+ln -s /root/void/git/dotfiles/kitty /root/void/.config
+ln -s /root/void/git/dotfiles/sway /root/void/.config
+ln -s /root/void/git/dotfiles/zsh /root/void/.config
+ln -s /root/void/git/dotfiles/wofi /root/void/.config
+ln -s /root/void/git/dotfiles/waybar /root/void/.config
+ln -s /root/void/git/dotfiles/nvim /root/void/.config
+ln -s /root/void/git/dotfiles/zsh/.zshrc /root/void/.zshrc
+ln -s /root/void/git/dotfiles/starship/starship.toml /root/void/.config/starship.toml
+ln -s /root/void/git/dotfiles/git /root/void/.config
+ln -s /root/void/git/dotfiles/fastfetch /root/void/.config
+ln -s /root/void/git/dotfiles/tmux /root/void/.config
+ln -s /root/void/git/dotfiles/gtk-3.0 /root/void/.config
+ln -s /root/void/git/dotfiles/gtk-4.0 /root/void/.config
