@@ -1,4 +1,4 @@
-sudo xbps-install -Syv kitty zsh wofi Waybar neovim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm
+sudo xbps-install -Syv kitty zsh wofi Waybar neovim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm fzf
 
 ln -s /root/void/git/dotfiles/kitty /root/void/.config
 ln -s /root/void/git/dotfiles/sway /root/void/.config
