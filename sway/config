@@ -38,12 +38,12 @@ input * {
 }
 
 #Autostart
-exec io.github.equicord.equibop
-#exec com.valvesoftware.Steam
-exec keepassxc
+exec flatpak run io.github.equicord.equibop
+exec flatpak run com.dropbox.Client
+exec bash -c 'sleep 2; keepassxc' &
+exec steam
 exec swaymsg focus output "DP-2"
 exec swaymsg layout tabbed
-exec dropbox
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
@@ -183,6 +183,7 @@ assign [app_id="Firefox"] $workspace_2
 assign [class="obsidian"] $workspace_3
 assign [app_id="equibop"] $workspace_4
 assign [class="Spotify"] $workspace_7
+assign [class="steam"] $workspace_5
 
 # Layout stuff
 bindsym $mod+s layout stacking
