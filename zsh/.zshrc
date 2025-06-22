@@ -57,6 +57,7 @@ zstyle ':completion:*' menu no
 alias ls='ls --color'
 alias ll='lsd -l'
 alias vim='nvim'
+alias fastfetch='clear && fastfetch'
 
 # Git Aliases
 alias gs='git status --short'
