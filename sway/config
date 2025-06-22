@@ -21,7 +21,7 @@ output DP-1 disable
 
 
 # Wallpaper
-output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.jpg fill
+output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.png fill
 output DP-1 background #000000 solid_color
 
 
