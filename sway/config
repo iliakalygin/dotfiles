@@ -15,8 +15,8 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 
 
 # Output configuration
-output DP-2 resolution 2560x1440@239.972HZ position 2560,0
-output DP-1 resolution 2560x1440@143.912HZ position 0,0
+output DP-2 resolution 2560x1440@239.972HZ position 2560 0
+output DP-1 resolution 2560x1440@143.912HZ position 0 0
 output DP-1 disable
 
 
@@ -30,6 +30,9 @@ input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
     pointer_accel 0
 }
+
+# Cursor theme
+seat * xcursor_theme Adwaita 24
 
 # Set keyboard layout to English US international
 input * {
