@@ -44,7 +44,6 @@ input * {
 }
 
 #Autostart
-exec flatpak run io.github.equicord.equibop
 exec flatpak run com.dropbox.Client
 exec bash -c 'sleep 2; keepassxc' &
 exec steam
@@ -53,6 +52,8 @@ exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
+exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
+exec /usr/libexec/xdg-desktop-portal-wlr
 
 # Flameshot stuff
 #exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -91,7 +92,6 @@ bindsym Mod1+f4 kill
 bindsym $mod+space exec $menu
 bindsym $mod+Mod1+e exec pcmanfm
 bindsym $mod+Mod1+L exec swaylock -f -c 000000
-bindsym $mod+Shift+D exec equibop
 bindsym $mod+Shift+c reload
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -187,7 +187,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace_0
 # Assign applications per workspace
 assign [app_id="Firefox"] $workspace_2
 assign [class="obsidian"] $workspace_3
-assign [app_id="equibop"] $workspace_4
+assign [class="discord"] $workspace_4
 assign [class="Spotify"] $workspace_7
 assign [class="steam"] $workspace_5
 
