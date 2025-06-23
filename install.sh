@@ -1,4 +1,4 @@
-sudo xbps-install -Syv kitty zsh wofi Waybar neovim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm fzf
+sudo xbps-install -Syv kitty zsh wofi Waybar neovim starship fastfetch tmux lsd lazygit gnome-themes-extra pcmanfm fzf xcursor-themes xrdb
 
 ln -s /home/void/git/dotfiles/kitty /home/void/.config
 ln -s /home/void/git/dotfiles/sway /home/void/.config
@@ -13,3 +13,4 @@ ln -s /home/void/git/dotfiles/fastfetch /home/void/.config
 ln -s /home/void/git/dotfiles/tmux /home/void/.config
 ln -s /home/void/git/dotfiles/gtk-3.0 /home/void/.config
 ln -s /home/void/git/dotfiles/gtk-4.0 /home/void/.config
+ln -s /home/void/git/dotfiles/xresources/.Xresources /home/void/.Xresources
