@@ -8,6 +8,15 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
 
+# Themeing stuff
+export XCURSOR_THEME=Adwaita
+export XCURSOR_SIZE=24
+export GTK_THEME=Adwaita-dark
+export QT_QPA_PLATFORMTHEME=qt5ct
+export QT_STYLE_OVERRIDE=Adwaita-dark
+
+
+
 # set nvim as deafult
 export EDITOR="nvim"
 export VISUAL="nvim"
