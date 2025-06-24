@@ -54,11 +54,12 @@ exec pipewire-pulse
 exec wireplumber
 exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec /usr/libexec/xdg-desktop-portal-wlr
+exec xrdb -merge ~/.Xresources
 
 # Flameshot stuff
-#exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-#exec hash dbus-update-activation-environment 2>/dev/null && \
-     #dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+exec hash dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 
 #Clipboard manager (cliphist)
