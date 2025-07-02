@@ -15,14 +15,16 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 
 
 # Output configuration
-output DP-2 resolution 2560x1440@239.972HZ position 2560 0
-output DP-1 resolution 2560x1440@143.912HZ position 0 0
-output DP-1 disable
+set $main_monitor DP-1
+set $second_monitor DP-2
+output $main_monitor resolution 2560x1440@239.972HZ position 2560 0
+output $second_monitor resolution 2560x1440@143.912HZ position 0 0
+output $second_monitor disable
 
 
 # Wallpaper
-output DP-2 bg ~/git/dotfiles/sway/img/wallpaper.png fill
-output DP-1 background #000000 solid_color
+output $main_monitor bg ~/git/dotfiles/sway/img/wallpaper.png fill
+output $second_monitor background #000000 solid_color
 
 
 # Input configuration
@@ -47,7 +49,6 @@ input * {
 exec flatpak run com.dropbox.Client
 exec bash -c 'sleep 2; keepassxc' &
 exec steam
-exec swaymsg focus output "DP-2"
 exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse
@@ -103,7 +104,7 @@ bindsym $mod+Shift+c reload
 floating_modifier $mod normal
 
 # Enable secondary monitor (to disable it again recload the config with ctrl+shift+c)
-bindsym $mod+Mod1+P output "DP-1" enable
+bindsym $mod+Mod1+P output "$second_monitor" enable
 
 # Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -149,16 +150,16 @@ set $workspace_9 9
 set $workspace_0 10
 
 # Assign workspace per monitor
-workspace $workspace_1 output DP-2
-workspace $workspace_2 output DP-2
-workspace $workspace_3 output DP-2
-workspace $workspace_4 output DP-2
-workspace $workspace_5 output DP-2
-workspace $workspace_6 output DP-2
-workspace $workspace_7 output DP-2
-workspace $workspace_8 output DP-2
-workspace $workspace_9 output DP-1
-workspace $workspace_0 output DP-1
+workspace $workspace_1 output $main_monitor
+workspace $workspace_2 output $main_monitor
+workspace $workspace_3 output $main_monitor
+workspace $workspace_4 output $main_monitor
+workspace $workspace_5 output $main_monitor
+workspace $workspace_6 output $main_monitor
+workspace $workspace_7 output $main_monitor
+workspace $workspace_8 output $main_monitor 
+workspace $workspace_9 output $second_monitor
+workspace $workspace_0 output $second_monitor
 
 # Switch to workspace
 bindsym $mod+1 workspace $workspace_1
