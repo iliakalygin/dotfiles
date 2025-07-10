@@ -1,17 +1,16 @@
 * {
     border:        none;
     border-radius: 0;
-    font-family:   Caskaydia Cove Nerd Font, monospace;
-    font-style: italic;
-    font-size:     16px;
+    font-family:   Iosevka NerdFont;
+    font-size:     15px;
     box-shadow:    none;
     text-shadow:   none;
     transition-duration: 0s;
 }
 
 window {
-    color:      rgba(166, 166, 166, 255);
-    background-color: rgba(0, 0, 0, 255);
+    color:      rgba(107, 107, 107, 255);
+    background-color: rgba(24, 24, 24, 255);
 }
 
 #workspaces {
@@ -28,7 +27,7 @@ window {
 }
 
 #workspaces button.focused {
-    color: rgba(166, 166, 166, 255);
+    color: rgba(255, 255, 255, 255);
 }
 
 #workspaces button.urgent {

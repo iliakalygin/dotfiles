@@ -17,7 +17,7 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 # Output configuration
 set $main_monitor DP-1
 set $second_monitor DP-2
-output $main_monitor resolution 2560x1440@239.972HZ position 2560 0
+output $main_monitor resolution 2560x1440@239.972HZ position 2560 0 adaptive_sync off
 output $second_monitor resolution 2560x1440@143.912HZ position 0 0
 output $second_monitor disable
 
@@ -26,11 +26,16 @@ output $second_monitor disable
 output $main_monitor bg ~/git/dotfiles/sway/img/wallpaper.png fill
 output $second_monitor background #000000 solid_color
 
-
 # Input configuration
+# G502 mouse
 input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
-    pointer_accel 0
+    pointer_accel -0.1
+}
+
+input "1133:50509:Logitech_USB_Receiver" {
+    accel_profile "flat"
+    pointer_accel -0.1
 }
 
 # Cursor theme
@@ -93,6 +98,8 @@ bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
 bindsym $mod+space exec $menu
 bindsym $mod+Mod1+e exec pcmanfm
+bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
+bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym $mod+Mod1+L exec swaylock -f -c 000000
 bindsym $mod+Shift+c reload
 

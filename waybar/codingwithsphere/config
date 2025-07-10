@@ -1,17 +1,13 @@
 {
     "layer": "bottom",
     "position": "bottom",
-    "height": 28,
+    "height": 22,
 
-    "modules-left": ["custom/voidlogo", "custom/whitespace","sway/workspaces", "sway/mode"],
+    "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": [],
     "modules-right": ["tray", "custom/whitespace", "custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "pulseaudio", "custom/separator", "clock"],
     "sway/mode": {
         "format": " {}"
-    },
-    "custom/voidlogo": {
-        "format":"  ",
-        "tooltip": false
     },
     "sway/workspaces": {
         "format": "{name}",
@@ -19,7 +15,7 @@
     },
     "sway/window": {
         "max-length": 80,
-        "tooltip": false,
+        "tooltip": false
     },
     "clock": {
         "format": "time {:%Y-%m-%d %H:%M:%S}",
