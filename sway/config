@@ -30,12 +30,12 @@ output $second_monitor background #000000 solid_color
 # G502 mouse
 input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
-    pointer_accel -0.1
+    pointer_accel 0
 }
 
 input "1133:50509:Logitech_USB_Receiver" {
     accel_profile "flat"
-    pointer_accel -0.1
+    pointer_accel 0
 }
 
 # Cursor theme
