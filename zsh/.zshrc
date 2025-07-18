@@ -22,6 +22,7 @@ export EDITOR="nvim"
 export VISUAL="nvim"
 
 export PATH=~/.local/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
 
 # set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
@@ -76,10 +77,13 @@ alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %a
 alias timeshift="sudo -E timeshift-gtk"
 
 # Void
-alias sxi="sudo xbps-install"
-alias sxr="sudo xbps-remove"
+alias xi="sudo xbps-install"
+alias xr="sudo xbps-remove"
 alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
+
+# cm aliases
+alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/cryptovault --password:stdin"
 
 # Shell integrations
 eval "$(fzf --zsh)"
