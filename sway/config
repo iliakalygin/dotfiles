@@ -62,6 +62,10 @@ exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec /usr/libexec/xdg-desktop-portal-wlr
 exec xrdb -merge ~/.Xresources
 
+# Unlock vaults
+exec ~/git/dotfiles/scripts/unlock-dropbox-vault.sh
+
+
 # Flameshot stuff
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 exec hash dbus-update-activation-environment 2>/dev/null && \
@@ -97,7 +101,7 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
 bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
 bindsym $mod+space exec $menu
-bindsym $mod+Mod1+e exec pcmanfm
+bindsym $mod+Mod1+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym $mod+Mod1+L exec swaylock -f -c 000000
