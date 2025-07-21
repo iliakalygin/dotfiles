@@ -83,7 +83,7 @@ alias reboot="sudo reboot"
 alias poweroff="sudo poweroff"
 
 # cm aliases
-alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/cryptovault --password:stdin"
+alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
 
 # Shell integrations
 eval "$(fzf --zsh)"
