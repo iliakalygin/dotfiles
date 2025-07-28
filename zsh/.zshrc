@@ -42,6 +42,9 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 #zinit light Aloxaf/fzf-tab
 
+# Load emacs keybinds
+bindkey -e
+
 # Load completions
 autoload -U compinit && compinit
 
@@ -79,8 +82,8 @@ alias timeshift="sudo -E timeshift-gtk"
 # Void
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
-alias reboot="sudo reboot"
-alias poweroff="sudo poweroff"
+alias reboot="pkill cryptomator-cli && sudo reboot"
+alias poweroff="pkill cryptomator-cli && sudo poweroff"
 
 # cm aliases
 alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
@@ -103,3 +106,5 @@ eval "$(starship init zsh)"
 
 
 export GPG_TTY=$(tty)
+
+export PATH=$PATH:/home/void/.spicetify
