@@ -23,7 +23,7 @@ output $second_monitor disable
 
 
 # Wallpaper
-output $main_monitor bg ~/git/dotfiles/sway/img/wallpaper.png fill
+output $main_monitor bg ~/git/dotfiles/sway/img/void-52.png fill
 output $second_monitor background #000000 solid_color
 
 # Input configuration
@@ -309,4 +309,7 @@ for_window [app_id="pcmanfm"] floating enable
 for_window [class="SFML Window"] floating enable
 for_window [app_id="gwenview"] floating enable
 for_window [class="Pinentry-gtk"] floating enable
+for_window [title="Open File"] floating enable
+for_window [title="Steam Settings"] floating enable
+for_window [title="sfmlapp"] floating enable
 #for_window [app_id=""] floating enable
