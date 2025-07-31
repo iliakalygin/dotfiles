@@ -4,11 +4,11 @@
     border: none;
 }
 window {
-    background-color: #202020;
     border: none;
     padding: 0px;
-    border-radius: 12px; /* Add this */
+    border-radius: 20px;
     overflow: hidden;
+    background-color: #000000;
 }
 
 #entry {
@@ -30,7 +30,7 @@ window {
 
 #input {
     color: #c1c1c1;
-    background: #202020;
+    background: #000000;
     outline: none;
 }
 
@@ -38,8 +38,9 @@ window {
     box-shadow: 0px 0px 0px 0px;
 }
 
+
 #scroll {
-    background-color: #202020;
+    background-color: #000000; /* global background color*/
 }
 
 #outer-box {
@@ -52,6 +53,6 @@ window {
 }
 
 #outer-box, #scroll, #list {
-    border-radius: 0 0 6px 6px; /* Match bottom corners if needed */
+    border-radius: 0 0 12px 12px; /* Match bottom corners if needed */
     overflow: hidden;
 }
