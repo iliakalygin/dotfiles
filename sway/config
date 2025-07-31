@@ -11,7 +11,7 @@ set $right l
 # Terminal emulator
 set $term kitty
 # Application launcher
-set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css
+set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css --verbose
 
 
 # Output configuration
@@ -58,7 +58,7 @@ exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
-exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
+#exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec /usr/libexec/xdg-desktop-portal-wlr
 exec xrdb -merge ~/.Xresources
 
@@ -104,7 +104,8 @@ bindsym $mod+space exec $menu
 bindsym $mod+Mod1+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
-bindsym $mod+Mod1+L exec swaylock -f -c 000000
+bindsym $mod+Mod1+L exec pkill Discord && swaylock -f -c 000000
+bindsym $mod+Mod1+D exec flatpak run com.discordapp.Discord 
 bindsym $mod+Shift+c reload
 
 # Drag floating windows by holding down $mod and left mouse button.
