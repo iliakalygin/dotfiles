@@ -82,8 +82,8 @@ alias timeshift="sudo -E timeshift-gtk"
 # Void
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
-alias reboot="pkill cryptomator-cli && sudo reboot"
-alias poweroff="pkill cryptomator-cli && sudo poweroff"
+alias reboot="pkill cryptomator-cli && loginctl reboot"
+alias poweroff="pkill cryptomator-cli && loginctl poweroff"
 
 # cm aliases
 alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
