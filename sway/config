@@ -76,7 +76,7 @@ exec hash dbus-update-activation-environment 2>/dev/null && \
 # https://github.com/sentriz/cliphist
 exec wl-paste --watch cliphist store
 bindsym $mod+v exec cliphist list | wofi --dmenu -p "Select item to copy" --lines 10 | cliphist decode | wl-copy
-bindsym $mod+Mod1+v exec cliphist wipe
+bindsym $mod+Mod1+v exec cliphist wipe && rm -rf /home/void/.cache/cliphist/
 
 
 # No borders
@@ -104,7 +104,7 @@ bindsym $mod+space exec $menu
 bindsym $mod+Mod1+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
-bindsym $mod+Mod1+L exec pkill Discord && swaylock -f -c 000000
+bindsym $mod+Mod1+L exec swaylock -f -c 000000
 bindsym $mod+Mod1+D exec flatpak run com.discordapp.Discord 
 bindsym $mod+Shift+c reload
 
