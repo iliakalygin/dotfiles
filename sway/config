@@ -23,7 +23,7 @@ output $second_monitor disable
 
 
 # Wallpaper
-output $main_monitor bg ~/git/dotfiles/sway/img/2115.jpg fill
+output $main_monitor bg ~/git/dotfiles/sway/img/37.png fill
 output $second_monitor background #000000 solid_color
 
 # Input configuration
@@ -101,7 +101,7 @@ client.focused_inactive        #000000 #000000 #000000 #000000 #000000
 bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
 bindsym $mod+space exec $menu
-bindsym $mod+Mod1+e exec thunar
+bindsym $mod+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym $mod+Mod1+L exec swaylock -f -c 000000
@@ -208,7 +208,7 @@ assign [class="steam"] $workspace_5
 # Layout stuff
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+d layout toggle split
 # Set tabbed layout as default
 workspace_auto_back_and_forth yes
 for_window [class=".*"] layout tabbed
@@ -270,13 +270,13 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
 #bindsym Shift+Print exec sh -c 'FILE=~/Screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$(slurp)" "$FILE" && wl-copy < "$FILE" && swappy -f "$FILE"'
 
 ## Flameshot (scuffed if switching between 1 and 2 monitor setup, fine for both or just one) 
-bindsym Shift+Print exec flameshot gui
+#bindsym Shift+Print exec flameshot gui
 # for_window doesnt work with only 1 monitor on
-for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+#for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 
 ## Satty best solution so far
 # inspiration: https://www.reddit.com/r/swaywm/comments/ghnlea/comment/fqnzxkx/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
+#set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-escape="save-to-clipboard,exit" --brush-smooth-history-size=5 --disable-notifications
 #set $printscreen_mode 'printscreen (r:region, f:full, w:window)'
 #mode $printscreen_mode {
 #    bindsym r exec swaymsg 'mode "default"' && grim -t ppm -g "$(slurp -d)" - | $satty
@@ -288,7 +288,27 @@ set $satty satty -f - --initial-tool=arrow --copy-command=wl-copy --actions-on-e
 #}
 #bindsym $mod+Shift+p mode $printscreen_mode
 # Use only satty window mode
-bindsym Print exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+#bindsym Print exec swaymsg 'mode "default"' && grim -t ppm - | $satty
+
+# Make sure this directory exists
+exec_always mkdir -p /home/void/Screenshots
+
+# 1. Just Print: capture full screen → save → copy → swappy
+bindsym Print exec sh -c 'file="/home/void/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+    grim "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
+
+# 2. Shift+Print: region capture → save → copy
+bindsym Shift+Print exec sh -c 'file="/home/void/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file"'
+
+# 3. Alt+Print: region capture → save → copy → swappy
+bindsym $mod+Print exec sh -c 'file="/home/void/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
+
+# Optional: force Swappy fullscreen whenever it opens 🤗
+for_window [app_id="swappy"] fullscreen enable
+
+
 
 
 # Waybar
