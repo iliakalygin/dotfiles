@@ -23,7 +23,7 @@ output $second_monitor disable
 
 
 # Wallpaper
-output $main_monitor bg ~/git/dotfiles/sway/img/void-52.png fill
+output $main_monitor bg ~/git/dotfiles/sway/img/2115.jpg fill
 output $second_monitor background #000000 solid_color
 
 # Input configuration
@@ -42,7 +42,7 @@ input "1133:50509:Logitech_USB_Receiver" {
 seat * xcursor_theme Adwaita 24
 
 # Hide cursor after 30 seconds of inactivity
-seat * hide_cursor 30000
+#seat * hide_cursor 30000
 
 # Set keyboard layout to English US international
 input * {
@@ -58,7 +58,7 @@ exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
-#exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
+exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec /usr/libexec/xdg-desktop-portal-wlr
 exec xrdb -merge ~/.Xresources
 
@@ -313,4 +313,5 @@ for_window [class="Pinentry-gtk"] floating enable
 for_window [title="Open File"] floating enable
 for_window [title="Steam Settings"] floating enable
 for_window [title="sfmlapp"] floating enable
+for_window [title="HandBrake"] floating enable
 #for_window [app_id=""] floating enable
