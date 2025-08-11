@@ -1,4 +1,3 @@
-
 # Environment variables
 export QT_QPA_PLATFORM=wayland-egl
 export ELM_DISPLAY=wl
@@ -8,6 +7,7 @@ export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
 export XDG_BACKEND=wlroots
+export WLR_NO_HARDWARE_CURSORS=1
 
 # Themeing stuff
 export XCURSOR_THEME=Adwaita
@@ -71,6 +71,8 @@ alias ls='ls --color'
 alias ll='lsd -l'
 alias vim='nvim'
 alias fastfetch='clear && fastfetch'
+alias lswindows='bash /home/void/git/dotfiles/scripts/listallwindows.sh'
+alias cpsh='cd "$(bash /home/void/git/dotfiles/scripts/cpsh.sh)"'
 
 # Git Aliases
 alias gs='git status --short'
@@ -108,3 +110,8 @@ eval "$(starship init zsh)"
 export GPG_TTY=$(tty)
 
 export PATH=$PATH:/home/void/.spicetify
+
+
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+    exec dbus-run-session sway
+fi
