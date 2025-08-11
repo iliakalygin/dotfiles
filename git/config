@@ -1,7 +1,7 @@
 [user]
     name = Ilia Kalygin
     email = ilia.kalygin@protonmail.com
-    signingkey = 61C78043853CBD25
+    signingkey = DD430D6C0318A745
 
 [core]
     compression = 9
