@@ -5,7 +5,7 @@
 
     "modules-left": ["custom/voidlogo", "custom/whitespace","sway/workspaces", "sway/mode"],
     "modules-center": [],
-    "modules-right": ["tray", "custom/whitespace", "custom/separator", "cpu", "custom/separator", "memory", "custom/separator", "pulseaudio", "custom/separator", "clock"],
+    "modules-right": ["tray", "custom/whitespace", "custom/separator", "pulseaudio", "custom/separator", "clock"],
     "sway/mode": {
         "format": " {}"
     },
@@ -22,13 +22,13 @@
         "tooltip": false,
     },
     "clock": {
-        "format": "time {:%Y-%m-%d %H:%M:%S}",
+        "format": "{:%Y-%m-%d %H:%M:%S}",
         "interval": 1
     },
     "pulseaudio": {
         "scroll-step": 2,
         "on-click": "pavucontrol",
-        "format": "vol {volume}%",
+        "format": "{volume}%",
     },
     "tray": {
         "icon-size": 20
@@ -37,7 +37,7 @@
         "format": "cpu {usage}%",
     },
    "memory": {
-        "format": "mem {used:0.1f}G/{total:0.1f}G"
+        "format": "{used:0.1f}G/{total:0.1f}G"
     },
     "custom/separator": {
         "exec": "echo \"::\"",
