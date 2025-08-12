@@ -40,6 +40,7 @@ vim.pack.add({
 	{ src = "https://github.com/williamboman/mason.nvim" },
 	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
 	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+	{ src = "https://github.com/numToStr/FTerm.nvim" },
 })
 
 -- load plugin configs
@@ -49,6 +50,7 @@ require("plugins.gitsigns")
 require("plugins.cmp")
 require("plugins.autopairs")
 require("plugins.lsp")
+require("plugins.fterm")
 
 
 -- ========== keymaps ==========
@@ -59,6 +61,14 @@ vim.keymap.set('n', '<leader>w', ":write<CR>")
 vim.keymap.set('n', '<leader>q', ":quit<CR>")
 -- clear highlights
 vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
+-- terminal toggle at current directory
+vim.keymap.set('n', '<leader>t', function()
+    local file_dir = vim.fn.expand('%:p:h')
+    if file_dir ~= "" then
+        vim.cmd('lcd ' .. file_dir)
+    end
+    require('FTerm').toggle()
+end)
 
 
 -- ========== ui/theme ==========
