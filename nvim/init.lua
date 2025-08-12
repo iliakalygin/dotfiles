@@ -24,18 +24,22 @@ vim.g.maplocalleader = ' '
 
 -- ========== plugins ==========
 vim.pack.add({
-  { src = "https://github.com/vague2k/vague.nvim" },
-  { src = "https://github.com/stevearc/oil.nvim" },
-  { src = "https://github.com/echasnovski/mini.pick" },
-  { src = "https://github.com/lewis6991/gitsigns.nvim" },
-  { src = "https://github.com/hrsh7th/nvim-cmp" },
-  { src = "https://github.com/hrsh7th/cmp-buffer" },
-  { src = "https://github.com/hrsh7th/cmp-path" },
-  { src = "https://github.com/hrsh7th/cmp-cmdline" },
-  { src = "https://github.com/L3MON4D3/LuaSnip" },
-  { src = "https://github.com/saadparwaiz1/cmp_luasnip" },
-  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
-  { src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/vague2k/vague.nvim" },
+	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/echasnovski/mini.pick" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/hrsh7th/nvim-cmp" },
+	{ src = "https://github.com/hrsh7th/cmp-buffer" },
+	{ src = "https://github.com/hrsh7th/cmp-path" },
+	{ src = "https://github.com/hrsh7th/cmp-cmdline" },
+	{ src = "https://github.com/L3MON4D3/LuaSnip" },
+	{ src = "https://github.com/saadparwaiz1/cmp_luasnip" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
+	{ src = "https://github.com/windwp/nvim-autopairs" },
+	{ src = "https://github.com/neovim/nvim-lspconfig" },
+	{ src = "https://github.com/williamboman/mason.nvim" },
+	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
 })
 
 -- load plugin configs
@@ -44,6 +48,7 @@ require("plugins.mini-pick")
 require("plugins.gitsigns")
 require("plugins.cmp")
 require("plugins.autopairs")
+require("plugins.lsp")
 
 
 -- ========== keymaps ==========
@@ -59,9 +64,10 @@ vim.keymap.set('n', '<Esc>', ':noh<CR>', opts)
 -- ========== ui/theme ==========
 vim.cmd("colorscheme vague")
 vim.cmd("hi statusline guibg=NONE")
+vim.cmd [[highlight Normal guibg=none]]
+vim.cmd [[highlight NonText guibg=none]]
+vim.cmd [[highlight SignColumn guibg=none]]
 
 -- Set cursor shape on exit
-vim.cmd [[
-  autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300
-]]
+vim.cmd [[ autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300 ]]
 
