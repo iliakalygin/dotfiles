@@ -81,3 +81,5 @@ vim.cmd [[highlight SignColumn guibg=none]]
 -- Set cursor shape on exit
 vim.cmd [[ autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300 ]]
 
+-- TODO:
+-- implement TJ variant of floating terminal with buffers

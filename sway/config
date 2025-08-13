@@ -334,4 +334,5 @@ for_window [title="Open File"] floating enable
 for_window [title="Steam Settings"] floating enable
 for_window [title="sfmlapp"] floating enable
 for_window [title="HandBrake"] floating enable
+for_window [app_id="swappy"] floating enable
 #for_window [app_id=""] floating enable

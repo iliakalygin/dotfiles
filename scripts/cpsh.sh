@@ -8,13 +8,13 @@ DATE=$(date +%Y%m%d) # get date in YYYYMMDD format
 
 DIR_NAME="${DATE} ${PROBLEM_NO} r${RATING} - ${PROBLEM_NAME}"
 
-BASE_PATH="/home/void/git/cp-solutions/codeforces/problemsets"
+BASE_PATH="/home/void/git/cp/codeforces/problemsets"
 FULL_PATH="${BASE_PATH}/${DIR_NAME}"
 
 mkdir -p "$FULL_PATH" || { echo "Failed to create directory"; exit 1; }
 
 # copy sol.cpp template
-cp /home/void/git/cp-solutions/sol.cpp "$FULL_PATH/" || { echo "Failed to copy sol.cpp"; exit 1; }
+cp /home/void/git/cp/sol.cpp "$FULL_PATH/" || { echo "Failed to copy sol.cpp"; exit 1; }
 
 touch "$FULL_PATH/problem.txt"
 
