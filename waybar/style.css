@@ -40,9 +40,13 @@ window {
     min-width:  25px;
 }
 
-#clock {
+#clock.date {
     margin:     0px 10px 0px 3px;
-    min-width:  140px;
+    color:      rgba(217, 216, 216, 0.4);
+}
+
+#clock.time {
+    margin:     0px 10px 0px 3px;
 }
 
 #memory {
@@ -55,4 +59,6 @@ window {
 
 #tray * {
     margin-left: 5px;
+	background-color: #000000;
+    font-style: normal;
 }
