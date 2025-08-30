@@ -74,9 +74,20 @@ end)
 -- ========== ui/theme ==========
 vim.cmd("colorscheme vague")
 vim.cmd("hi statusline guibg=NONE")
-vim.cmd [[highlight Normal guibg=none]]
-vim.cmd [[highlight NonText guibg=none]]
-vim.cmd [[highlight SignColumn guibg=none]]
+--vim.cmd [[highlight Normal guibg=none]]
+--vim.cmd [[highlight NonText guibg=none]]
+--vim.cmd [[highlight SignColumn guibg=none]]
+
+
+
+local bg_color = "#151517"
+vim.cmd(string.format([[
+  highlight Normal guibg=%s
+  highlight LineNr guibg=%s
+  highlight SignColumn guibg=%s
+  highlight NormalNC guibg=%s
+  highlight EndOfBuffer guibg=%s
+]], bg_color, bg_color, bg_color, bg_color, bg_color))
 
 -- Set cursor shape on exit
 vim.cmd [[ autocmd VimLeave * set guicursor=a:ver25-blinkon750-blinkoff400-blinkwait300 ]]
