@@ -28,7 +28,8 @@
     },
     "clock#date": {
         "format": "{:%d.%m}",
-        "interval": 1
+        "interval": 1,
+		"on-click": "gnome-calendar"
     },
     "pulseaudio": {
         "scroll-step": 2,
