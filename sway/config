@@ -17,9 +17,10 @@ set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfi
 # Output configuration
 set $main_monitor DP-1
 set $second_monitor DP-2
-output $main_monitor resolution 2560x1440@239.972HZ position 2560 0 adaptive_sync off
+output $main_monitor resolution 2560x1440@239.972HZ position 2560 0
 output $second_monitor resolution 2560x1440@143.912HZ position 0 0
 output $second_monitor disable
+output * adaptive_sync off
 
 
 # Wallpaper
@@ -338,4 +339,5 @@ for_window [title="sfmlapp"] floating enable
 for_window [title="HandBrake"] floating enable
 for_window [app_id="swappy"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable
+for_window [title="png bitmap image import"] floating enable
 #for_window [app_id=""] floating enable
