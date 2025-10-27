@@ -24,7 +24,7 @@ output * adaptive_sync off
 
 
 # Wallpaper
-output $main_monitor bg ~/git/dotfiles/sway/img/loupe-mono-dark.png fill
+output $main_monitor bg ~/git/dotfiles/sway/img/moon.jpg fill
 output $second_monitor background #000000 solid_color
 
 # Input configuration
