@@ -31,7 +31,7 @@ output $second_monitor background #000000 solid_color
 # G502 mouse
 input "1133:50503:Logitech_USB_Receiver" {
     accel_profile "flat"
-    pointer_accel -0.2
+    pointer_accel 0
 }
 
 input "1133:50509:Logitech_USB_Receiver" {
@@ -87,12 +87,12 @@ titlebar_padding 1
 titlebar_border_thickness 0
 default_border normal 0
 default_floating_border normal 0
-font pango:Any_font_name 0.001
+font pango:Any_font_name 8
 
 # make titlebar all black
-client.focused                 #000000 #000000 #000000 #000000 #000000
-client.unfocused               #000000 #000000 #000000 #000000 #000000
-client.focused_inactive        #000000 #000000 #000000 #000000 #000000
+client.focused                 #000000 #000000 #ffffff #000000 #000000
+client.unfocused               #000000 #000000 #ffffff #000000 #000000
+client.focused_inactive        #000000 #000000 #ffffff #000000 #000000
 
 
 # Key bindings
