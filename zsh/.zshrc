@@ -115,7 +115,8 @@ export GPG_TTY=$(tty)
 
 export PATH=$PATH:/home/void/.spicetify
 
-# automatically start sway after login
+# automatically start sway/niri after login
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-    exec dbus-run-session sway
+    #exec dbus-run-session sway
+    exec dbus-run-session niri
 fi
