@@ -9,6 +9,7 @@ export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
 export XDG_BACKEND=wlroots
 export WLR_NO_HARDWARE_CURSORS=1
+export VDPAU_DRIVER=va_gl
 
 # Themeing stuff
 export XCURSOR_THEME=Adwaita
