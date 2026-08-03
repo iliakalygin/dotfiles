@@ -36,10 +36,10 @@ vim.pack.add({
 	{ src = "https://github.com/saadparwaiz1/cmp_luasnip" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/windwp/nvim-autopairs" },
-	{ src = "https://github.com/neovim/nvim-lspconfig" },
-	{ src = "https://github.com/williamboman/mason.nvim" },
-	{ src = "https://github.com/williamboman/mason-lspconfig.nvim" },
-	{ src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
+	-- { src = "https://github.com/neovim/nvim-lspconfig" },
+	-- { src = "https://github.com/williamboman/mason.nvim" },
+	-- { src = "https://github.com/williamboman/mason-lspconfig.nvim" },
+	-- { src = "https://github.com/hrsh7th/cmp-nvim-lsp" },
 	{ src = "https://github.com/numToStr/FTerm.nvim" },
 })
 
@@ -49,7 +49,7 @@ require("plugins.mini-pick")
 require("plugins.gitsigns")
 require("plugins.cmp")
 require("plugins.autopairs")
-require("plugins.lsp")
+-- require("plugins.lsp")
 require("plugins.fterm")
 
 

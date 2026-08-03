@@ -1,4 +1,4 @@
-# Sway config
+ #Sway config
 
 # Variables
 # Logo key. Use Mod1 for Alt.
@@ -52,9 +52,10 @@ input * {
 }
 
 #Autostart
-exec flatpak run com.dropbox.Client
+exec easyeffects -w
+exec flatpak run com.dropbox.Client start
 exec bash -c 'sleep 2; keepassxc' &
-exec steam
+#exec steam
 exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse

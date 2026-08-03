@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Pipewire Pulse
+Exec=pipewire-pulse
+X-GNOME-Autostart-enabled=true
