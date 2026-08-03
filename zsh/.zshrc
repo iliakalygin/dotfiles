@@ -4,7 +4,7 @@ export ELM_DISPLAY=wl
 export SDL_VIDEODRIVER=wayland
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DISABLE_RDD_SANDBOX=1 
-export XDG_CURRENT_DESKTOP=sway
+export XDG_CURRENT_DESKTOP=GNOME
 export XDG_SESSION_TYPE=wayland
 export GDK_BACKEND=wayland
 export XDG_BACKEND=wlroots
@@ -15,7 +15,6 @@ export XCURSOR_THEME=Adwaita
 export XCURSOR_SIZE=24
 export GTK_THEME=Adwaita-dark
 export QT_QPA_PLATFORMTHEME=qt5ct
-export QT_STYLE_OVERRIDE=Adwaita-dark
 
 
 # set nvim as deafult
@@ -88,8 +87,10 @@ alias timeshift="sudo -E timeshift-gtk"
 # Void
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
-alias reboot="pkill cryptomator-cli && loginctl reboot"
-alias poweroff="pkill cryptomator-cli && loginctl poweroff"
+#alias reboot="pkill cryptomator-cli && loginctl reboot"
+alias reboot="loginctl reboot"
+#alias poweroff="pkill cryptomator-cli && loginctl poweroff"
+alias poweroff="loginctl poweroff"
 
 # cm aliases
 alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
@@ -101,8 +102,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PATH=$PATH:/home/iliak/.spicetify
-
 # Created by `pipx` on 2025-05-10 20:06:04
 export PATH="$PATH:~/.local/bin"
 
@@ -110,10 +109,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 eval "$(starship init zsh)"
 
-
 export GPG_TTY=$(tty)
-
-export PATH=$PATH:/home/void/.spicetify
 
 # automatically start sway after login
 #if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
