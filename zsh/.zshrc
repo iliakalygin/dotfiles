@@ -5,7 +5,7 @@ export SDL_VIDEODRIVER=wayland
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_DISABLE_RDD_SANDBOX=1 
 export XDG_CURRENT_DESKTOP=GNOME
-export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_TYPE=sway
 export GDK_BACKEND=wayland
 export XDG_BACKEND=wlroots
 export WLR_NO_HARDWARE_CURSORS=1
@@ -95,7 +95,7 @@ alias reboot="loginctl reboot"
 alias poweroff="loginctl poweroff"
 
 # cm aliases
-alias myworkv="cryptomator-cli unlock /home/void/Dropbox/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
+alias myworkv="cryptomator-cli unlock /home/void/Nextcloud/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
 
 # Shell integrations
 eval "$(fzf --zsh)"
@@ -114,6 +114,6 @@ eval "$(starship init zsh)"
 export GPG_TTY=$(tty)
 
 # automatically start sway after login
-#if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
-#    exec dbus-run-session sway
-#fi
+if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
+    exec dbus-run-session sway
+fi

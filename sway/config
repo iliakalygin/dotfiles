@@ -11,7 +11,7 @@ set $right l
 # Terminal emulator
 set $term kitty
 # Application launcher
-set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css --verbose
+#set $menu wofi --show drun --conf ~/git/dotfiles/wofi/config --style ~/git/dotfiles/wofi/style.css --verbose
 
 
 # Output configuration
@@ -52,33 +52,50 @@ input * {
 }
 
 #Autostart
-exec easyeffects -w
-exec flatpak run com.dropbox.Client start
-exec bash -c 'sleep 2; keepassxc' &
-#exec steam
+# System
+exec /usr/libexec/xdg-desktop-portal-wlr
+exec_always --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec swaymsg layout tabbed
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
-exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
-exec /usr/libexec/xdg-desktop-portal-wlr
 exec xrdb -merge ~/.Xresources
-
+exec noctalia
+#Applications
+exec --no-startup-id nextcloud
+exec bash -c 'sleep 2; keepassxc' &
+exec steam
+exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 # Unlock vaults
-exec ~/git/dotfiles/scripts/unlock-dropbox-vault.sh
+exec ~/git/dotfiles/scripts/unlock-nextcloud-vault.sh
+
 
 
 # Flameshot stuff
-exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-exec hash dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
+#exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+#exec hash dbus-update-activation-environment 2>/dev/null && \
+#     dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 #Clipboard manager (cliphist)
 # https://github.com/sentriz/cliphist
-exec wl-paste --watch cliphist store
-bindsym $mod+v exec cliphist list | wofi --dmenu -p "Select item to copy" --lines 10 | cliphist decode | wl-copy
-bindsym $mod+Mod1+v exec cliphist wipe && rm -rf ~/.cache/cliphist/
+#exec wl-paste --watch cliphist store
+#bindsym $mod+v exec cliphist list | wofi --dmenu -p "Select item to copy" --lines 10 | cliphist decode | wl-copy
+#bindsym $mod+Mod1+v exec cliphist wipe && rm -rf ~/.cache/cliphist/
+
+
+#noctalia
+set $ipc noctalia msg
+bindsym $mod+space exec $ipc panel-toggle launcher
+bindsym $mod+s exec $ipc panel-toggle control-center
+bindsym $mod+comma exec $ipc settings-toggle
+bindsym $mod+v exec $ipc panel-toggle clipboard
+bindsym Print exec $ipc screenshot-region
+bindsym $mod+Mod1+L exec $ipc session lock
+bindsym --locked XF86AudioRaiseVolume exec $ipc volume-up 2%
+bindsym --locked XF86AudioLowerVolume exec $ipc volume-down 2%
+bindsym --locked XF86AudioMute exec $ipc volume-mute
+bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
+bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
 
 # No borders
@@ -88,7 +105,7 @@ titlebar_padding 1
 titlebar_border_thickness 0
 default_border normal 0
 default_floating_border normal 0
-font pango:Any_font_name 8
+font pango:Any_font_name 0.001
 
 # make titlebar all black
 client.focused                 #000000 #000000 #ffffff #000000 #000000
@@ -102,12 +119,12 @@ client.focused_inactive        #000000 #000000 #ffffff #000000 #000000
 
 bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
-bindsym $mod+q kill
-bindsym $mod+space exec $menu
+##bindsym $mod+q kill
+#bindsym $mod+space exec $menu
 bindsym $mod+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
-bindsym $mod+Mod1+L exec swaylock -f -c 000000
+#bindsym $mod+Mod1+L exec swaylock -f -c 000000
 bindsym $mod+Mod1+D exec flatpak run com.discordapp.Discord 
 bindsym $mod+Shift+c reload
 
@@ -203,13 +220,13 @@ bindsym $mod+Shift+0 move container to workspace $workspace_0
 
 # Assign applications per workspace
 assign [app_id="Firefox"] $workspace_2
-assign [class="obsidian"] $workspace_3
-assign [class="discord"] $workspace_4
-assign [class="Spotify"] $workspace_7
-assign [class="steam"] $workspace_5
+assign [app_id="trilium"] $workspace_3
+assign [app_id="discord"] $workspace_4
+assign [app_id="feishin"] $workspace_7
+#assign [class="steam"] $workspace_5
 
 # Layout stuff
-bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+d layout toggle split
 # Set tabbed layout as default
@@ -253,17 +270,17 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Special keys to adjust volume via PulseAudio
-bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
-bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
-bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
-bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
+#bindsym --locked XF86AudioMute exec pactl set-sink-mute \@DEFAULT_SINK@ toggle
+#bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume \@DEFAULT_SINK@ -2%
+#bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume \@DEFAULT_SINK@ +2%
+#bindsym --locked XF86AudioMicMute exec pactl set-source-mute \@DEFAULT_SOURCE@ toggle
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioPlay exec playerctl play-pause
 
 # Special keys to adjust brightness via brightnessctl
-bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
-bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
+#bindsym --locked XF86MonBrightnessDown exec brightnessctl set 2%-
+#bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
 
 #
 # Screenshot setups:
@@ -295,24 +312,24 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 2%+
 
 
 # 1. Just Print: capture full screen → save → copy → swappy
-bindsym Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
-    grim "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
+#bindsym Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+#    grim "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
 
 # 2. Shift+Print: region capture → save → copy
-bindsym Shift+Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
-    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file"'
+#bindsym Shift+Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+#    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file"'
 
 # 3. Alt+Print: region capture → save → copy → swappy
-bindsym $mod+Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
-    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
+#bindsym $mod+Print exec sh -c 'file="/mnt/Dropbox/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png"; \
+#    grim -g "$(slurp)" "$file" && wl-copy --type image/png < "$file" && swappy -f "$file"'
 
 # Optional: force Swappy fullscreen whenever it opens 🤗
-for_window [app_id="swappy"] fullscreen enable
+#for_window [app_id="swappy"] fullscreen enable
 
 # Waybar
-bar {
-    swaybar_command waybar
-}
+#bar {
+#    swaybar_command waybar
+#}
 
 # Enable floating windows for apps
 for_window [app_id="keepassxc"] floating enable
@@ -328,6 +345,7 @@ for_window [class="SFML Window"] floating enable
 for_window [app_id="gwenview"] floating enable
 for_window [class="Pinentry-gtk"] floating enable
 for_window [title="Open File"] floating enable
+for_window [title="Open Folder"] floating enable
 for_window [title="File Upload"] floating enable, resize set width 1200 px height 700 px
 for_window [title="Steam Settings"] floating enable
 for_window [title="sfmlapp"] floating enable
@@ -338,4 +356,8 @@ for_window [title="png bitmap image import"] floating enable
 for_window [title="File Operation Progress"] floating enable
 for_window [title="Confirm to replace files"] floating enable
 for_window [title="Library"] floating enable
+for_window [app_id="grok-bot"] floating enable
+for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
+for_window [app_id="thunar"] floating enable
 #for_window [app_id=""] floating enable
+

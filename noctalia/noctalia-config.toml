@@ -1,0 +1,157 @@
+[bar.default]
+center = []
+concave_edge_corners = false
+end = [ "tray", "screenshot", "clipboard", "volume", "date", "clock" ]
+margin_ends = 0
+position = "bottom"
+start = [ "launcher", "workspaces" ]
+
+[calendar]
+
+[control_center]
+hidden_tabs = [ "power", "network", "bluetooth", "weather", "notifications", "screen-time" ]
+
+    [control_center.calendar]
+    show_events_card = false
+
+[desktop_widgets]
+enabled = false
+
+[idle]
+behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = false
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = false
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 600.0
+
+[lockscreen]
+blur_intensity = 0.099999997764825821
+wallpaper = "/home/void/git/dotfiles/sway/img/2115.jpg"
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 1280.0
+    cy = 786.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 1280.0
+    cy = 1258.0
+    output = "DP-2"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[osd]
+border = false
+position = "bottom_center"
+
+    [osd.kinds]
+    media = false
+
+[shell.launcher]
+pinned = [ "firefox" ]
+
+[shell.panel]
+open_near_click_control_center = true
+
+[shell.screenshot]
+annotate = true
+confirm_region = true
+
+[theme]
+builtin = "Nord"
+community_palette = "Monochrome"
+mode = "dark"
+pure_black_dark = true
+shell_mode = "dark"
+source = "community"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "gtk3", "gtk4", "qt" ]
+
+[wallpaper]
+enabled = false
+
+    [wallpaper.default]
+    path = "/usr/share/noctalia/assets/noctalia-wallpaper.png"
+
+    [wallpaper.last]
+    path = "/usr/share/noctalia/assets/noctalia-wallpaper.png"
+
+[widget.clipboard]
+enabled = false
+
+[widget.clock]
+color = "primary"
+
+[widget.date]
+format = "{:%d.%m}"
+
+[widget.launcher]
+enabled = false
+
+[widget.screenshot]
+enabled = false

@@ -80,7 +80,8 @@ vim.cmd("hi statusline guibg=NONE")
 
 
 
-local bg_color = "#151517"
+--local bg_color = "#151517"
+local bg_color = "#000000"
 vim.cmd(string.format([[
   highlight Normal guibg=%s
   highlight LineNr guibg=%s
