@@ -7,6 +7,12 @@ position = "bottom"
 start = [ "launcher", "workspaces" ]
 
 [calendar]
+enabled = true
+
+    [calendar.account.nextcloud_cal]
+    name = "Nexcloud"
+    server_url = "https://ubuntu-server.tail5b94df.ts.net/apps/calendar/p/SDbgcGcdkocdPCc4"
+    type = "ics"
 
 [control_center]
 hidden_tabs = [ "power", "network", "bluetooth", "weather", "notifications", "screen-time" ]
@@ -110,8 +116,11 @@ position = "bottom_center"
     [osd.kinds]
     media = false
 
+[plugins]
+enabled = [ "noctalia/mpvpaper" ]
+
 [shell.launcher]
-pinned = [ "firefox" ]
+pinned = [ "firefox", "org.triliumnotes.Trilium", "org.keepassxc.KeePassXC", "org.jeffvli.feishin", "cursor", "grok-bot" ]
 
 [shell.panel]
 open_near_click_control_center = true
@@ -121,7 +130,7 @@ annotate = true
 confirm_region = true
 
 [theme]
-builtin = "Nord"
+builtin = "Dracula"
 community_palette = "Monochrome"
 mode = "dark"
 pure_black_dark = true
@@ -139,13 +148,17 @@ enabled = false
     path = "/usr/share/noctalia/assets/noctalia-wallpaper.png"
 
     [wallpaper.last]
-    path = "/usr/share/noctalia/assets/noctalia-wallpaper.png"
+    path = "/home/void/.cache/noctalia/mpvpaper/__static.jpg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/void/.cache/noctalia/mpvpaper/__static.jpg"
 
 [widget.clipboard]
 enabled = false
 
 [widget.clock]
 color = "primary"
+format = "{:%H:%M:%S}"
 
 [widget.date]
 format = "{:%d.%m}"

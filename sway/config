@@ -98,16 +98,21 @@ bindsym --locked XF86MonBrightnessUp exec $ipc brightness-up
 bindsym --locked XF86MonBrightnessDown exec $ipc brightness-down
 
 
-# No borders
+# No titlebars. `normal` always draws a title bar; `none` does not.
+# `--i3 both` hides the tab strip when a tabbed container has only one window.
+# Multiple tabs still show a strip (Sway cannot hide that).
 default_border none
 default_floating_border none
+hide_edge_borders --i3 both
 titlebar_padding 1
 titlebar_border_thickness 0
-default_border normal 0
-default_floating_border normal 0
-font pango:Any_font_name 0.001
+for_window [app_id=".*"] border none
+for_window [class=".*"] border none
+# default_border only applies to new windows; re-apply after reload
+exec_always swaymsg -- '[tiling] border none'
+exec_always swaymsg -- '[floating] border none'
 
-# make titlebar all black
+# Tab strip colors (only visible with multiple tabs)
 client.focused                 #000000 #000000 #ffffff #000000 #000000
 client.unfocused               #000000 #000000 #ffffff #000000 #000000
 client.focused_inactive        #000000 #000000 #ffffff #000000 #000000
