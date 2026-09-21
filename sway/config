@@ -63,7 +63,8 @@ exec xrdb -merge ~/.Xresources
 exec noctalia
 #Applications
 exec --no-startup-id nextcloud
-exec bash -c 'sleep 2; keepassxc' &
+# Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
+exec ~/git/dotfiles/scripts/start-keepassxc.sh
 exec steam
 exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 # Unlock vaults
