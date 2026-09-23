@@ -61,12 +61,14 @@ exec pipewire-pulse
 exec wireplumber
 exec xrdb -merge ~/.Xresources
 exec noctalia
+exec sudo /usr/local/bin/gpu-performance
 #Applications
 exec --no-startup-id nextcloud
 # Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
-exec steam
+#exec steam
 exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
+exec bash -c "sleep 5; swaymsg '[app_id="discord"] kill'" &
 # Unlock vaults
 exec ~/git/dotfiles/scripts/unlock-nextcloud-vault.sh
 
@@ -131,7 +133,7 @@ bindsym $mod+e exec thunar
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 #bindsym $mod+Mod1+L exec swaylock -f -c 000000
-bindsym $mod+Mod1+D exec flatpak run com.discordapp.Discord 
+#bindsym $mod+Mod1+D exec flatpak run com.discordapp.Discord 
 bindsym $mod+Shift+c reload
 
 # Drag floating windows by holding down $mod and left mouse button.
@@ -229,7 +231,7 @@ assign [app_id="Firefox"] $workspace_2
 assign [app_id="trilium"] $workspace_3
 assign [app_id="discord"] $workspace_4
 assign [app_id="feishin"] $workspace_7
-#assign [class="steam"] $workspace_5
+assign [class="steam"] $workspace_5
 
 # Layout stuff
 #bindsym $mod+s layout stacking
@@ -365,5 +367,9 @@ for_window [title="Library"] floating enable
 for_window [app_id="grok-bot"] floating enable
 for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
 for_window [app_id="thunar"] floating enable
-#for_window [app_id=""] floating enable
+for_window [app_id="io.github.flattool.Warehouse"] floating enable
+for_window [app_id="org.gnome.eog"] floating enable
 
+
+# Update Software
+exec ~/git/dotfiles/scripts/update-cursor.sh
