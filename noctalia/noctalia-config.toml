@@ -42,13 +42,14 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     timeout = 600.0
 
 [lockscreen]
-blur_intensity = 0.099999997764825821
-wallpaper = "/home/void/git/dotfiles/sway/img/2115.jpg"
+blur_intensity = 0.04999999888241291
+monitors = [ "DP-1" ]
+wallpaper = "/home/void/git/dotfiles/sway/img/boat.jpg"
 
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1" ]
+widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lockscreen-widget-0000000000000001" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
@@ -56,10 +57,10 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1" ]
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-1"]
-    box_height = 196.0
-    box_width = 720.0
+    box_height = 70.0
+    box_width = 400.0
     cx = 1280.0
-    cy = 786.0
+    cy = 755.0
     output = "DP-1"
     placement_height = 1440.0
     placement_width = 2560.0
@@ -72,15 +73,15 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1" ]
         background_radius = 12.0
         center_password_text = false
         input_opacity = 1.0
-        input_radius = 6.0
-        layout = "regular"
+        input_radius = 10.0
+        layout = "compact"
         show_caps_lock = true
         show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
+        show_login_button = false
+        show_media = false
         show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
+        show_unlock_hint = false
+        show_weather = false
 
     [lockscreen_widgets.widget."lockscreen-login-box@DP-2"]
     box_height = 196.0
@@ -109,6 +110,26 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1" ]
         show_unlock_hint = true
         show_weather = true
 
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 128.0
+    box_width = 272.0
+    cx = 1280.0
+    cy = 256.0
+    output = "DP-1"
+    placement_height = 1440.0
+    placement_width = 2560.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        background_padding = 0
+        clock_style = "digital"
+        shadow = true
+
+[notification]
+position = "bottom_right"
+
 [osd]
 border = false
 position = "bottom_center"
@@ -120,7 +141,16 @@ position = "bottom_center"
 enabled = [ "noctalia/mpvpaper" ]
 
 [shell.launcher]
-pinned = [ "firefox", "org.triliumnotes.Trilium", "org.keepassxc.KeePassXC", "org.jeffvli.feishin", "cursor", "grok-bot" ]
+pinned = [
+    "firefox",
+    "org.triliumnotes.Trilium",
+    "org.keepassxc.KeePassXC",
+    "org.jeffvli.feishin",
+    "cursor",
+    "grok-bot",
+    "com.discordapp.Discord",
+    "com.nextcloud.desktopclient.nextcloud"
+]
 
 [shell.panel]
 open_near_click_control_center = true
