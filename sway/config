@@ -130,7 +130,7 @@ bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
 ##bindsym $mod+q kill
 #bindsym $mod+space exec $menu
-bindsym $mod+e exec thunar
+bindsym $mod+e exec nautilus
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 #bindsym $mod+Mod1+L exec swaylock -f -c 000000
@@ -179,6 +179,8 @@ bindsym $mod+Shift+Right move right
 # Workspaces:
 
 # Workpspaces names
+
+set $workspace_zero 0
 set $workspace_1 1
 set $workspace_2 2 
 set $workspace_3 3
@@ -191,6 +193,7 @@ set $workspace_9 9
 set $workspace_0 10
 
 # Assign workspace per monitor
+workspace $workspace_zero output $main_monitor
 workspace $workspace_1 output $main_monitor
 workspace $workspace_2 output $main_monitor
 workspace $workspace_3 output $main_monitor
@@ -199,10 +202,12 @@ workspace $workspace_5 output $main_monitor
 workspace $workspace_6 output $main_monitor
 workspace $workspace_7 output $main_monitor
 workspace $workspace_8 output $main_monitor 
+workspace $workspace_c output $main_monitor 
 workspace $workspace_9 output $second_monitor
 workspace $workspace_0 output $second_monitor
 
 # Switch to workspace
+bindcode $mod+49 workspace $workspace_zero
 bindsym $mod+1 workspace $workspace_1
 bindsym $mod+2 workspace $workspace_2
 bindsym $mod+3 workspace $workspace_3
@@ -215,6 +220,7 @@ bindsym $mod+9 workspace $workspace_9
 bindsym $mod+0 workspace $workspace_0
 
 # Move focused container to workspace
+bindcode $mod+Shift+49 move container to workspace $workspace_zero
 bindsym $mod+Shift+1 move container to workspace $workspace_1
 bindsym $mod+Shift+2 move container to workspace $workspace_2
 bindsym $mod+Shift+3 move container to workspace $workspace_3
@@ -228,6 +234,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace_0
 
 
 # Assign applications per workspace
+assign [app_id="cursor"] $workspace_zero
 assign [app_id="Firefox"] $workspace_2
 assign [app_id="trilium"] $workspace_3
 assign [app_id="discord"] $workspace_4

@@ -15,7 +15,8 @@ export LIBVA_DRIVER_NAME=radeonsi
 # Themeing stuff
 export XCURSOR_THEME=Adwaita
 export XCURSOR_SIZE=24
-export GTK_THEME=Adwaita-dark
+#export GTK_THEME=Adwaita-dark
+unset GTK_THEME
 export QT_QPA_PLATFORMTHEME=qt5ct
 export QT_STYLE_OVERRIDE=Adwaita-dark
 

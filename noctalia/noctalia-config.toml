@@ -128,10 +128,12 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         shadow = true
 
 [notification]
+monitors = [ "DP-1" ]
 position = "bottom_right"
 
 [osd]
 border = false
+monitors = [ "DP-1" ]
 position = "bottom_center"
 
     [osd.kinds]
@@ -167,9 +169,6 @@ pure_black_dark = true
 shell_mode = "dark"
 source = "community"
 wallpaper_scheme = "m3-content"
-
-    [theme.templates]
-    builtin_ids = [ "gtk3", "gtk4", "qt" ]
 
 [wallpaper]
 enabled = false
