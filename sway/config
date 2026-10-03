@@ -389,6 +389,8 @@ for_window [title="Export"] floating enable
 for_window [title="Please Confirm..."] floating enable
 for_window [title="Select Frames"] floating enable
 for_window [title="Project Settings (project.godot)"] floating enable
+for_window [title="Attach Node Script"] floating enable
+for_window [class="Godot"] floating enable
 
 
 # Update Software

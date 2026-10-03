@@ -86,15 +86,13 @@ alias gs='git status --short'
 alias ga='git add'
 alias gc='git commit'
 alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
-alias timeshift="sudo -E timeshift-gtk"
+alias timeshift="sudo -E GTK_THEME=adw-gtk3-dark timeshift-gtk"
 
 # Void
 alias xi="sudo xbps-install"
 alias xr="sudo xbps-remove"
-#alias reboot="pkill cryptomator-cli && loginctl reboot"
-alias reboot="loginctl reboot"
-#alias poweroff="pkill cryptomator-cli && loginctl poweroff"
-alias poweroff="loginctl poweroff"
+alias reboot="pkill cryptomator-cli && loginctl reboot"
+alias poweroff="pkill cryptomator-cli && loginctl poweroff"
 
 # cm aliases
 alias myworkv="cryptomator-cli unlock /home/void/Nextcloud/MyWorkV --mounter=org.cryptomator.frontend.fuse.mount.LinuxFuseMountProvider --mountPoint=/mnt/MyWorkV --password:stdin"
