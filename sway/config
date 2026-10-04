@@ -110,6 +110,7 @@ default_floating_border none
 hide_edge_borders --i3 both
 titlebar_padding 1
 titlebar_border_thickness 0
+font pango:Any_font_name 8
 for_window [app_id=".*"] border none
 for_window [class=".*"] border none
 # default_border only applies to new windows; re-apply after reload
