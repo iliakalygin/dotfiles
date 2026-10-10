@@ -24,7 +24,7 @@ output * adaptive_sync off
 
 
 # Wallpaper
-output $main_monitor bg ~/git/dotfiles/sway/img/boat.jpg fill
+output $main_monitor bg ~/git/dotfiles/sway/img/2475237.jpg fill
 output $second_monitor background #000000 solid_color
 
 # Input configuration
@@ -40,7 +40,7 @@ input "1133:50509:Logitech_USB_Receiver" {
 }
 
 # Cursor theme
-seat * xcursor_theme Adwaita 24
+seat * xcursor_theme Bibata-Modern-Classic 22
 
 # Hide cursor after 30 seconds of inactivity
 seat * hide_cursor 30000
@@ -67,7 +67,7 @@ exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESK
 exec --no-startup-id nextcloud
 # Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
-#exec steam
+exec steam
 exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec bash -c "sleep 5; swaymsg '[app_id="discord"] kill'" &
 # Unlock vaults
@@ -378,19 +378,8 @@ for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
 for_window [app_id="thunar"] floating enable
 for_window [app_id="io.github.flattool.Warehouse"] floating enable
 for_window [app_id="org.gnome.eog"] floating enable
+for_window [app_id="dev.zed.Zed"] floating enable
 # Godot
-for_window [title="Open a File or Directory"] floating enable
-for_window [title="Open a File"] floating enable
-for_window [title="Create New Project"] floating enable
-for_window [title="Create Folder"] floating enable
-for_window [title="Create New Scene"] floating enable
-for_window [title="Create New Node"] floating enable
-for_window [title="Save Scene As..."] floating enable
-for_window [title="Export"] floating enable
-for_window [title="Please Confirm..."] floating enable
-for_window [title="Select Frames"] floating enable
-for_window [title="Project Settings (project.godot)"] floating enable
-for_window [title="Attach Node Script"] floating enable
 for_window [class="Godot"] floating enable
 
 

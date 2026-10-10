@@ -1,10 +1,11 @@
 [bar.default]
+capsule_fill = "outline"
 center = []
-concave_edge_corners = false
 end = [ "tray", "screenshot", "clipboard", "volume", "date", "clock" ]
 margin_ends = 0
 position = "bottom"
 start = [ "launcher", "workspaces" ]
+widget_spacing = 8
 
 [calendar]
 enabled = true
@@ -41,10 +42,12 @@ behavior_order = [ "lock", "screen-off", "lock-and-suspend" ]
     enabled = true
     timeout = 600.0
 
+[location]
+auto_locate = true
+
 [lockscreen]
-blur_intensity = 0.04999999888241291
 monitors = [ "DP-1" ]
-wallpaper = "/home/void/git/dotfiles/sway/img/boat.jpg"
+wallpaper = "/home/void/git/dotfiles/sway/img/2475237.jpg"
 
 [lockscreen_widgets]
 enabled = true
@@ -127,6 +130,9 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         clock_style = "digital"
         shadow = true
 
+[nightlight]
+force = true
+
 [notification]
 monitors = [ "DP-1" ]
 position = "bottom_right"
@@ -158,7 +164,6 @@ pinned = [
 open_near_click_control_center = true
 
 [shell.screenshot]
-annotate = true
 confirm_region = true
 
 [theme]
@@ -182,6 +187,12 @@ enabled = false
     [wallpaper.monitors.DP-1]
     path = "/home/void/.cache/noctalia/mpvpaper/__static.jpg"
 
+    [wallpaper.monitors.DP-2]
+    path = "/home/void/.cache/noctalia/mpvpaper/_home_void_Videos_night_sky_3840x2160_mp4.jpg"
+
+[weather]
+enabled = false
+
 [widget.clipboard]
 enabled = false
 
@@ -197,3 +208,6 @@ enabled = false
 
 [widget.screenshot]
 enabled = false
+
+[widget.tray]
+pinned = [ "Discord" ]

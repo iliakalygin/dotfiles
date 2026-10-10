@@ -13,7 +13,7 @@ export VDPAU_DRIVER=va_gl
 export LIBVA_DRIVER_NAME=radeonsi
 
 # Themeing stuff
-export XCURSOR_THEME=Adwaita
+export XCURSOR_THEME=Bibata-Modern-Classic
 export XCURSOR_SIZE=24
 #export GTK_THEME=Adwaita-dark
 unset GTK_THEME
