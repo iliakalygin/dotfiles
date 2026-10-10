@@ -77,10 +77,6 @@ alias vim='nvim'
 alias fastfetch='clear && fastfetch'
 alias lswindows='bash /home/void/git/dotfiles/scripts/listallwindows.sh'
 
-# CP
-alias cpsh='cd "$(bash /home/void/git/dotfiles/scripts/cpsh.sh)"'
-alias rsol='g++ sol.cpp -o sol && ./sol'
-
 # Git Aliases
 alias gs='git status --short'
 alias ga='git add'
@@ -109,7 +105,7 @@ export PATH="$PATH:~/.local/bin"
 
 export PATH=$PATH:/usr/local/go/bin
 
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 
 export GPG_TTY=$(tty)
 
