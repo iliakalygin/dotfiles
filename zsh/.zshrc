@@ -101,3 +101,7 @@ export GPG_TTY=$(tty)
 if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec dbus-run-session sway
 fi
+
+if [[ $- == *i* ]]; then
+    fastfetch
+fi
