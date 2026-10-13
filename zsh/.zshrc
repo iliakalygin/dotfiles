@@ -106,6 +106,9 @@ if [[ $- == *i* ]]; then
     fastfetch
 fi
 
+# Fix cursor beam
+printf '\e[5 q'
+
 # >>> grok installer >>>
 export PATH="$HOME/.grok/bin:$PATH"
 fpath=(~/.grok/completions/zsh $fpath)

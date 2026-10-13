@@ -20,12 +20,17 @@ onboarding = false
 
 # Override individual color tokens on top of the base theme.
 # Accepts: hex (#rrggbb), named colors, rgb(r,g,b), or panel_bg = "reset"
-# [theme.custom]
+name = "catppuccin"
+auto_switch = false
+
+[theme.custom]
 # sidebar_bg = "#181825"
-# active_row_bg = "#1e1e2e"
+active_row_bg = "#151619"
 # selection_bg = "#313244"
-# panel_bg = "reset"
-# accent = "#f5c2e7"
+panel_bg = "#000000"
+accent = "#5286b3" # active tab background color
+surface0 = "#000000" # inactive tab background color
+
 # red = "#ff6188"
 # green = "#a6e3a1"
 
@@ -38,8 +43,6 @@ onboarding = false
 # panel_bg = "#1e1e2e"
 # text = "#cdd6f4"
 
-name = "catppuccin"
-auto_switch = false
 [terminal]
 # Executable used for new interactive panes.
 # Empty means $SHELL, then /bin/sh.
