@@ -105,3 +105,9 @@ fi
 if [[ $- == *i* ]]; then
     fastfetch
 fi
+
+# >>> grok installer >>>
+export PATH="$HOME/.grok/bin:$PATH"
+fpath=(~/.grok/completions/zsh $fpath)
+autoload -Uz compinit && compinit -C
+# <<< grok installer <<<

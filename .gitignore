@@ -1,0 +1,10 @@
+# herdr runtime / regenerable
+herdr/*.log
+herdr/*.sock
+herdr/.plugins.lock
+herdr/session.json
+herdr/session-snapshots/
+herdr/release-notes.json
+herdr/plugins.json
+herdr/plugins/github/
+herdr/**/__pycache__/
