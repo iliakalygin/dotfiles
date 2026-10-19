@@ -68,6 +68,8 @@ exec --no-startup-id nextcloud
 # Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
 exec steam
+exec flatpak run org.telegram.desktop
+
 exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
 exec bash -c "sleep 5; swaymsg '[app_id="discord"] kill'" &
 # Unlock vaults
@@ -131,7 +133,7 @@ bindsym $mod+Return exec $term
 bindsym Mod1+f4 kill
 ##bindsym $mod+q kill
 #bindsym $mod+space exec $menu
-bindsym $mod+e exec nautilus
+#bindsym $mod+e exec nautilus
 bindsym $mod+Escape exec flatpak run io.missioncenter.MissionCenter 
 bindsym Control+Shift+Escape exec flatpak run io.missioncenter.MissionCenter 
 #bindsym $mod+Mod1+L exec swaylock -f -c 000000
@@ -385,3 +387,13 @@ for_window [class="Godot"] floating enable
 
 # Update Software
 exec ~/git/dotfiles/scripts/update-cursor.sh
+
+# Scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+for_window [app_id="org.telegram.desktop"] floating enable, move scratchpad, scratchpad show
+bindsym $mod+t exec swaymsg '[app_id="org.telegram.desktop"] scratchpad show' || exec flatpak run org.telegram.desktop
+
+for_window [app_id="org.gnome.Nautilus"] floating enable, move scratchpad, scratchpad show
+bindsym $mod+e exec swaymsg '[app_id="org.gnome.Nautilus"] scratchpad show' || exec nautilus
