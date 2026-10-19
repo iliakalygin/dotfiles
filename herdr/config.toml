@@ -123,8 +123,10 @@ close_tab = ["prefix+shift+x", "alt+x"]
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
-split_vertical = ["prefix+v", "alt+v"]
-split_horizontal = ["prefix+minus", "alt+minus"]
+# Built-in splits honor terminal.new_cwd ("home" here). Clear them and wrap
+# below so only splits inherit the active pane cwd; tabs/workspaces stay home.
+split_vertical = ""
+split_horizontal = ""
 # close_pane = "prefix+x"
 # zoom = "prefix+z"       # legacy alias: fullscreen
 # resize_mode = "prefix+r"
@@ -149,12 +151,30 @@ toggle_sidebar = ["prefix+b", "alt+b"]
 # type = "popup" opens a session-modal terminal without changing the tab layout.
 # Popup width and height accept terminal cells or percentages such as "80%".
 # On Windows, command strings run through cmd.exe /d /c.
-# [[keys.command]]
-# key = "prefix+alt+g"
-# type = "popup"
-# command = "lazygit"
-# width = "80%"
-# height = "80%"
+# Explicit --cwd outranks terminal.new_cwd, so splits follow without a global change.
+[[keys.command]]
+key = "prefix+v"
+type = "shell"
+description = "split vertical (inherit cwd)"
+command = '''"$HERDR_BIN_PATH" pane split --pane "$HERDR_ACTIVE_PANE_ID" --direction right --cwd "${HERDR_ACTIVE_PANE_CWD:-$HOME}" --focus'''
+
+[[keys.command]]
+key = "alt+v"
+type = "shell"
+description = "split vertical (inherit cwd)"
+command = '''"$HERDR_BIN_PATH" pane split --pane "$HERDR_ACTIVE_PANE_ID" --direction right --cwd "${HERDR_ACTIVE_PANE_CWD:-$HOME}" --focus'''
+
+[[keys.command]]
+key = "prefix+minus"
+type = "shell"
+description = "split horizontal (inherit cwd)"
+command = '''"$HERDR_BIN_PATH" pane split --pane "$HERDR_ACTIVE_PANE_ID" --direction down --cwd "${HERDR_ACTIVE_PANE_CWD:-$HOME}" --focus'''
+
+[[keys.command]]
+key = "alt+minus"
+type = "shell"
+description = "split horizontal (inherit cwd)"
+command = '''"$HERDR_BIN_PATH" pane split --pane "$HERDR_ACTIVE_PANE_ID" --direction down --cwd "${HERDR_ACTIVE_PANE_CWD:-$HOME}" --focus'''
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.
