@@ -68,10 +68,8 @@ exec --no-startup-id nextcloud
 # Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
 exec steam
-exec flatpak run org.telegram.desktop
-
-exec bash -c 'sleep 2; flatpak run com.discordapp.Discord' &
-exec bash -c "sleep 5; swaymsg '[app_id="discord"] kill'" &
+exec flatpak run org.telegram.desktop -startintray
+exec flatpak run flatpak run com.discordapp.Discord -startintray
 # Unlock vaults
 exec ~/git/dotfiles/scripts/unlock-nextcloud-vault.sh
 
@@ -240,14 +238,14 @@ bindsym $mod+Shift+0 move container to workspace $workspace_0
 assign [app_id="cursor"] $workspace_zero
 assign [app_id="Firefox"] $workspace_2
 assign [app_id="trilium"] $workspace_3
-assign [app_id="discord"] $workspace_4
+#assign [app_id="discord"] $workspace_4
 assign [app_id="feishin"] $workspace_7
 assign [class="steam"] $workspace_5
 
 # Layout stuff
 #bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+d layout toggle split
+bindsym $mod+q layout toggle split
 # Set tabbed layout as default
 workspace_auto_back_and_forth yes
 for_window [class=".*"] layout tabbed
@@ -380,13 +378,9 @@ for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
 for_window [app_id="thunar"] floating enable
 for_window [app_id="io.github.flattool.Warehouse"] floating enable
 for_window [app_id="org.gnome.eog"] floating enable
-for_window [app_id="dev.zed.Zed"] floating enable
 # Godot
 for_window [class="Godot"] floating enable
 
-
-# Update Software
-exec ~/git/dotfiles/scripts/update-cursor.sh
 
 # Scratchpad
 bindsym $mod+Shift+minus move scratchpad
@@ -395,5 +389,13 @@ bindsym $mod+minus scratchpad show
 for_window [app_id="org.telegram.desktop"] floating enable, move scratchpad, scratchpad show
 bindsym $mod+t exec swaymsg '[app_id="org.telegram.desktop"] scratchpad show' || exec flatpak run org.telegram.desktop
 
-for_window [app_id="org.gnome.Nautilus"] floating enable, move scratchpad, scratchpad show
+for_window [app_id="org.gnome.Nautilus"] floating enable, resize 1700 1000, move scratchpad, scratchpad show
 bindsym $mod+e exec swaymsg '[app_id="org.gnome.Nautilus"] scratchpad show' || exec nautilus
+
+for_window [app_id="discord"] floating enable, resize set 2220 1200, move scratchpad, scratchpad show
+bindsym $mod+d exec swaymsg '[app_id="discord"] scratchpad show' || exec flatpak run com.discordapp.Discord 
+
+
+# Update Software
+exec ~/git/dotfiles/scripts/update-cursor.sh
+
