@@ -69,10 +69,9 @@ exec --no-startup-id nextcloud
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
 exec steam
 exec flatpak run org.telegram.desktop -startintray
-exec flatpak run flatpak run com.discordapp.Discord -startintray
+exec flatpak run com.discordapp.Discord -startintray
 # Unlock vaults
 exec ~/git/dotfiles/scripts/unlock-nextcloud-vault.sh
-
 
 
 # Flameshot stuff
@@ -386,7 +385,7 @@ for_window [class="Godot"] floating enable
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
-for_window [app_id="org.telegram.desktop"] floating enable, move scratchpad, scratchpad show
+for_window [app_id="org.telegram.desktop"] floating enable, resize 1300 790 move scratchpad, scratchpad show
 bindsym $mod+t exec swaymsg '[app_id="org.telegram.desktop"] scratchpad show' || exec flatpak run org.telegram.desktop
 
 for_window [app_id="org.gnome.Nautilus"] floating enable, resize 1700 1000, move scratchpad, scratchpad show
@@ -395,7 +394,14 @@ bindsym $mod+e exec swaymsg '[app_id="org.gnome.Nautilus"] scratchpad show' || e
 for_window [app_id="discord"] floating enable, resize set 2220 1200, move scratchpad, scratchpad show
 bindsym $mod+d exec swaymsg '[app_id="discord"] scratchpad show' || exec flatpak run com.discordapp.Discord 
 
+for_window [app_id="org.keepassxc.KeePassXC"] floating enable, resize set 1510 870, move scratchpad, scratchpad show
+bindsym $mod+o exec swaymsg '[app_id="org.keepassxc.KeePassXC"] scratchpad show' || exec keepassxc
+
 
 # Update Software
 exec ~/git/dotfiles/scripts/update-cursor.sh
+
+
+# Switch to Workspace 1
+exec swaymsg workspace 1
 

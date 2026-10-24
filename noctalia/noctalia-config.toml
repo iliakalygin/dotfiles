@@ -130,9 +130,6 @@ widget_order = [ "lockscreen-login-box@DP-2", "lockscreen-login-box@DP-1", "lock
         clock_style = "digital"
         shadow = true
 
-[nightlight]
-force = true
-
 [notification]
 monitors = [ "DP-1" ]
 position = "bottom_right"
@@ -144,11 +141,13 @@ position = "bottom_center"
 
     [osd.kinds]
     media = false
+    nightlight = false
 
 [plugins]
 enabled = [ "noctalia/mpvpaper" ]
 
 [shell.launcher]
+compact = true
 pinned = [
     "firefox",
     "org.triliumnotes.Trilium",
@@ -161,7 +160,9 @@ pinned = [
 ]
 
 [shell.panel]
+launcher_position = "bottom_left"
 open_near_click_control_center = true
+open_near_click_launcher = true
 
 [shell.screenshot]
 confirm_region = true
@@ -211,3 +212,7 @@ enabled = false
 
 [widget.tray]
 pinned = [ "Discord" ]
+
+[widget.workspaces]
+occupied_color = "on_surface_variant"
+style = "minimal"
