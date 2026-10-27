@@ -1,0 +1,11 @@
+io.github.flattool.Warehouse
+org.gnome.Calculator
+com.discordapp.discordapp
+org.jeffvli.feishin
+io.github._66HEX.Frame
+com.obsproject.Studio
+com.github.PintaProject.Pinta
+com.spotify.Client
+org.telegram.desktop
+org.triliumnotes.Trilium
+

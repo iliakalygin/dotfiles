@@ -72,7 +72,7 @@ alias gs='git status --short'
 alias ga='git add'
 alias gc='git commit'
 alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
-alias timeshift="sudo -E GTK_THEME=adw-gtk3-dark timeshift-gtk"
+alias lg='lazygit' 
 
 # Void
 alias xi="sudo xbps-install"
@@ -102,9 +102,9 @@ if [ -z "$DISPLAY" ] && [ "$(tty)" = "/dev/tty1" ]; then
     exec dbus-run-session sway
 fi
 
-if [[ $- == *i* ]]; then
-    fastfetch
-fi
+#if [[ $- == *i* ]]; then
+#    fastfetch
+#fi
 
 # Fix cursor beam
 printf '\e[5 q'
