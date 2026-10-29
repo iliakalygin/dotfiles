@@ -47,8 +47,9 @@ seat * hide_cursor 30000
 
 # Set keyboard layout to English US international
 input * {
-    xkb_layout us
+    xkb_layout us,ru
     xkb_variant intl
+	xkb_options grp:alt_space_toggle
 }
 
 #Autostart
@@ -377,6 +378,7 @@ for_window [app_id="com.nextcloud.desktopclient.nextcloud"] floating enable
 for_window [app_id="thunar"] floating enable
 for_window [app_id="io.github.flattool.Warehouse"] floating enable
 for_window [app_id="org.gnome.eog"] floating enable
+for_window [app_id="org.gnome.clocks"] floating enable
 # Godot
 for_window [class="Godot"] floating enable
 

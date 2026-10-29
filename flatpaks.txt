@@ -8,4 +8,7 @@ com.github.PintaProject.Pinta
 com.spotify.Client
 org.telegram.desktop
 org.triliumnotes.Trilium
-
+org.gnome.clocks
+io.github.rafatosta.gtasks
+org.gnome.Snapshot
+hu.irl.cameractrls

@@ -83,3 +83,4 @@ desktop-file-utils
 timeshift
 cronie
 gamescope
+inkscape

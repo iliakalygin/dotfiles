@@ -1,7 +1,7 @@
 [bar.default]
 capsule_fill = "outline_variant"
 center = []
-end = [ "tray", "screenshot", "clipboard", "volume", "date", "clock" ]
+end = [ "tray", "volume", "keyboard_layout", "date", "clock" ]
 margin_ends = 0
 position = "bottom"
 start = [ "launcher", "workspaces" ]
