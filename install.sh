@@ -1,4 +1,5 @@
-sudo xbps-install -S -y $(cat packages.txt)
+sudo xbps-install -Suyv void-repo-nonfree void-repo-multilib void-repo-multilib-nonfree
+sudo xbps-install -Suyv $(cat packages.txt)
 
 flatpak install -y flathub $(cat flatpaks.txt)
 
