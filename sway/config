@@ -46,10 +46,11 @@ seat * xcursor_theme Bibata-Modern-Classic 22
 seat * hide_cursor 30000
 
 # Set keyboard layout to English US international
+# Keyboard configuration
 input * {
-    xkb_layout us,ru
-    xkb_variant intl
-	xkb_options grp:alt_space_toggle
+    xkb_layout us,ru_qwertz
+    xkb_variant intl,
+    xkb_options grp:alt_space_toggle
 }
 
 #Autostart
@@ -68,7 +69,7 @@ exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESK
 exec --no-startup-id nextcloud
 # Launch via script: Sway expands $vars in this file, which broke an inline sh -c.
 exec ~/git/dotfiles/scripts/start-keepassxc.sh
-exec steam
+#exec steam
 exec flatpak run org.telegram.desktop -startintray
 exec flatpak run com.discordapp.Discord -startintray
 # Unlock vaults
