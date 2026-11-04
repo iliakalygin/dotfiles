@@ -70,7 +70,8 @@ alias lswindows='bash /home/void/git/dotfiles/scripts/listallwindows.sh'
 # Git Aliases
 alias gs='git status --short'
 alias ga='git add'
-alias gc='git commit'
+alias gc='git clone'
+alias gcm='git commit -m'
 alias gl="git log --all --graph --pretty=format:'%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n'"
 alias lg='lazygit' 
 

@@ -5,6 +5,7 @@ flatpak install -y flathub $(cat flatpaks.txt)
 
 curl -fsSL https://herdr.dev/install.sh | sh
 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 ln -s ~/git/dotfiles/kitty ~/.config
 ln -s ~/git/dotfiles/sway ~/.config
